@@ -7,22 +7,44 @@
 
 @theme {
 	--color-primary: #B88E2F;
-   	--color-black: #333333;
+	--color-primary-25: #FFF3E3;
+	--color-black: #333333;
+	--color-gray: #666666;
 }
 
-@layer utilities {
-	.container {
-		@apply mx-auto px-5;
-	}
+@utility container {
+	@apply mx-auto px-5;
 }
 
-@layer utilities {
-	.flex-center {
-		@apply flex items-center justify-center;
+@utility flex-center {
+	@apply flex items-center justify-center;
+}
+
+@utility flex-y-center {
+	@apply flex items-center;
+}
+
+@utility transition-ease-in-out {
+	@apply transition duration-300 ease-in-out;
+}
+
+/*transition duration-300 ease-in-out*/
+
+@utility btn-primary {
+	@apply bg-primary text-white font-bold text-base w-full border border-primary hover:bg-white hover:text-primary transition-ease-in-out;
+}
+
+@layer base {
+	h1 {
+		font-size: 52px;
+		font-weight: bold;
+		line-height: 1.22;
 	}
 
-	.flex-y-center {
-		@apply flex items-center;
+	h2 {
+		font-size: 40px;
+		font-weight: bold;
+		line-height: 1.22;
 	}
 }
 
