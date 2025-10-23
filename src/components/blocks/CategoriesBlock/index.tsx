@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 
-interface IHomeHeroBlockProps {
+interface ICategoriesBlockProps {
+	sectionTitle: string;
+	sectionDescription: string;
 	categories: {
 		id: number;
 		title: string;
@@ -15,19 +17,15 @@ interface IHomeHeroBlockProps {
 
 export default function CategoriesBlock({
 	categories,
-	// title,
-	// description,
-	// image,
-	// link,
-}: IHomeHeroBlockProps) {
+	sectionTitle,
+	sectionDescription,
+}: ICategoriesBlockProps) {
 	return (
 		<div className="relative mb-14">
 			<div className="container xl:max-w-296">
-				<div className="text-center mb-15.5">
-					<h2>Browse The Range</h2>
-					<p className="text-xl text-gray">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					</p>
+				<div className="text-center mb-10 lg:mb-15.5">
+					<h2>{sectionTitle}</h2>
+					<p className="text-xl text-gray-600">{sectionDescription}</p>
 				</div>
 
 				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-5">

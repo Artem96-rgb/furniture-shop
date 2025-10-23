@@ -2,6 +2,7 @@
 
 import HomeHeroBlock from "@/components/blocks/HomeHeroBlock";
 import CategoriesBlock from "@/components/blocks/CategoriesBlock";
+import ProductsBlock from "@/components/blocks/ProductsBlock";
 
 export default function Home() {
 	const categories = [
@@ -49,7 +50,13 @@ export default function Home() {
 				}}
 			/>
 
-			<CategoriesBlock categories={categories} />
+			<CategoriesBlock
+				sectionTitle="Browse The Range"
+				sectionDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+				categories={categories}
+			/>
+
+			<ProductsBlock />
 		</>
 	);
 }
