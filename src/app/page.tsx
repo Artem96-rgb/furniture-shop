@@ -3,6 +3,7 @@
 import HomeHeroBlock from "@/components/blocks/HomeHeroBlock";
 import CategoriesBlock from "@/components/blocks/CategoriesBlock";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
+import { products } from "@/data/products";
 
 export default function Home() {
 	const categories = [
@@ -56,7 +57,7 @@ export default function Home() {
 				categories={categories}
 			/>
 
-			<ProductsBlock />
+			<ProductsBlock title="Our Products" products={products} />
 		</>
 	);
 }

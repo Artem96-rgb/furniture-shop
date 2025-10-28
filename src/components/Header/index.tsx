@@ -4,12 +4,17 @@ import Link from "next/link";
 import { Search, Heart, ShoppingCart, Menu, Scale } from "lucide-react";
 import { useState } from "react";
 import { useCompareStore } from "@/store/compareProductsStore";
+import { useWishlistStore } from "@/store/wishlistProductsStore";
 import Logo from "@/components/Logo";
 
 export default function Header() {
-	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+	// Get the list of products added to the compare list from the compare store
 	const compareProducts = useCompareStore(state => state.compareProducts);
+
+	// Get the list of products added to the wishlist from the wishlist store
+	const wishlistProducts = useWishlistStore(state => state.wishlistProducts);
+
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const menuLinks = [
 		{
@@ -38,7 +43,9 @@ export default function Header() {
 		{
 			id: "header-icon-heart",
 			icon: Heart,
-			type: "button",
+			productCount: wishlistProducts.length,
+			type: "link",
+			href: "/wishlist",
 		},
 		{
 			id: "header-icon-compare",
@@ -89,7 +96,7 @@ export default function Header() {
 							return (
 								<div key={item.id} className="relative">
 									{item.type === "link" ? (
-										<Link href={item.href!}>
+										<Link href={item.href!} className="block">
 											<Icon size={28} />
 											{Badge}
 										</Link>

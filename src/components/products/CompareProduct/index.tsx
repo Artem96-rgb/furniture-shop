@@ -24,7 +24,7 @@ export default function CompareProduct({ productId, children, className }: IComp
 
 	return (
 		<button className={className} type="button" onClick={handleClick}>
-			{isAdded ? "Remove" : children}
+			{children}
 		</button>
 	);
 }

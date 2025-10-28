@@ -6,17 +6,17 @@
 }
 
 @theme {
-	--color-primary: #B88E2F;
-	--color-primary-25: #FFF3E3;
+	--color-primary: #b88e2f;
+	--color-primary-25: #fff3e3;
 	--color-black: #333333;
-	--color-gray-100: #E8E8E8;
-	--color-gray-400: #B0B0B0;
+	--color-gray-100: #e8e8e8;
+	--color-gray-400: #b0b0b0;
 	--color-gray-500: #898989;
 	--color-gray-600: #666666;
 	--color-gray-700: #727272;
-	--color-accent: #E97171;
-	--color-green: #2EC1AC;
-	--color-light: #F4F5F7;
+	--color-accent: #e97171;
+	--color-green: #2ec1ac;
+	--color-light: #f4f5f7;
 }
 
 @utility container {
@@ -42,25 +42,29 @@
 }
 
 @layer base {
-	h1, .h1 {
+	h1,
+	.h1 {
 		font-size: 52px;
 		font-weight: bold;
 		line-height: 1.22;
 	}
 
-	h2, .h2 {
+	h2,
+	.h2 {
 		font-size: 40px;
 		font-weight: bold;
 		line-height: 1.22;
 	}
 
-	h3, .h3 {
+	h3,
+	.h3 {
 		font-size: 28px;
 		font-weight: 500;
 		line-height: 1.25;
 	}
 
-	h4, .h4 {
+	h4,
+	.h4 {
 		font-size: 24px;
 		font-weight: 600;
 	}

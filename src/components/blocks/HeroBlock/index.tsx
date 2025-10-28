@@ -9,7 +9,7 @@ interface IHeroBlockProps {
 	// Image URL for the hero block background.
 	// Path relative to the `public` folder. For example, if the file is `public/hero.jpg`,
 	// then simply pass "hero.jpg".
-	backgroundImageUrl: string;
+	backgroundImageUrl?: string;
 	title: string;
 	breadcrumbTitle: string;
 	className?: string;
@@ -24,7 +24,7 @@ export default function HeroBlock({
 	return (
 		<div
 			className={clsx(
-				`bg-[url(/${backgroundImageUrl})] bg-cover bg-center flex-y-center flex-col py-20.5 pb-24.5 px-2.5`,
+				`bg-[url(${backgroundImageUrl})] bg-cover bg-center flex-y-center flex-col py-20.5 pb-24.5 px-2.5`,
 				className
 			)}
 		>

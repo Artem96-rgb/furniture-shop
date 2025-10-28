@@ -15,6 +15,21 @@ export default function ComparePage() {
 	// whose IDs exist in the compareProducts array
 	const selectedProducts = products.filter(product => compareProducts.includes(product.id));
 
+	const productGeneralCharacteristics = [
+		{
+			id: "general-characteristic-1",
+			title: "Sales Package",
+		},
+		{
+			id: "general-characteristic-2",
+			title: "Model Number",
+		},
+		{
+			id: "general-characteristic-3",
+			title: "Configuration",
+		},
+	];
+
 	return (
 		<div>
 			<HeroBlock
@@ -25,9 +40,11 @@ export default function ComparePage() {
 			/>
 
 			<div className="container overflow-x-auto">
-				<div className="flex mb-16">
-					<div className="grow-0 shrink-0 basis-[25%] pl-15.5">
-						<p className="h3 mb-5.5 max-w-55">Go to Product page for more Products</p>
+				<div className="grid grid-cols-3 lg:grid-flow-col lg:auto-cols-[310px] mb-16">
+					<div className="lg:pl-10.5">
+						<p className="h3 mb-5.5 lg:max-w-55">
+							Go to Product page for more Products
+						</p>
 						<Link
 							href="/shop"
 							className="text-xl/7.5 font-medium text-gray-700 underline underline-offset-6"
@@ -36,50 +53,54 @@ export default function ComparePage() {
 						</Link>
 					</div>
 
-					{selectedProducts.length > 0 &&
-						selectedProducts.map(selectedProduct => (
-							<div
-								className="grow-0 shrink-0 basis-[25%] px-4"
-								key={selectedProduct.id}
-							>
-								<div className="h-44.25 overflow-hidden relative">
-									<ProductImage
-										src={selectedProduct.image}
-										alt={selectedProduct.title}
-									/>
+					{selectedProducts?.map(selectedProduct => (
+						<div className="px-4" key={selectedProduct.id}>
+							<div className="h-44.25 overflow-hidden relative">
+								<ProductImage
+									src={selectedProduct.image}
+									alt={selectedProduct.title}
+								/>
 
-									<ProductBadge badge={selectedProduct.badge} />
-								</div>
-								<p>{selectedProduct.title}</p>
-								<p>{selectedProduct.price}</p>
+								<ProductBadge badge={selectedProduct.badge} />
 							</div>
-						))}
+							<p>{selectedProduct.title}</p>
+							<p>{selectedProduct.price}</p>
+						</div>
+					))}
 				</div>
 
 				<div className="flex border-t border-gray-100">
 					<div className="pt-10.5 px-10.5 border-r border-gray-100 grow-0 shrink-0 basis-[25%]">
 						<p className="h3 mb-7">General</p>
-						<div className="space-y-8">
-							<p className="text-xl">Sales Package</p>
-							<p className="text-xl">Model Number</p>
-							<p className="text-xl">Configuration</p>
-						</div>
+
+						{productGeneralCharacteristics?.length > 0 && (
+							<div className="space-y-8">
+								{productGeneralCharacteristics.map(productGeneralCharacteristic => (
+									<p key={productGeneralCharacteristic.id} className="text-xl">
+										{productGeneralCharacteristic.title}
+									</p>
+								))}
+							</div>
+						)}
 					</div>
 
-					{selectedProducts.length > 0 &&
+					{selectedProducts?.length > 0 &&
 						selectedProducts.map(selectedProduct => (
 							<div
 								key={selectedProduct.id}
 								className="pt-10.5 px-15.5 border-r border-gray-100 grow-0 shrink-0 basis-[25%]"
 							>
-								<p className="h3 mb-5.5 max-w-55 opacity-0">General</p>
+								<p className="h3 mb-7 max-w-55 opacity-0">General</p>
+
 								<div className="space-y-8">
 									<p className="text-xl">
 										{selectedProduct.characteristics.salesPackage}
 									</p>
+
 									<p className="text-xl">
 										{selectedProduct.characteristics.modelNumber}
 									</p>
+
 									<p className="text-xl">
 										{selectedProduct.characteristics.configuration}
 									</p>
