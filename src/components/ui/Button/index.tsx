@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, ElementType } from "react";
+import clsx from "clsx";
 
 interface IButtonProps {
 	children: ReactNode;
@@ -10,18 +11,12 @@ interface IButtonProps {
 	className?: string;
 }
 
-export default function Button({ children, type = "button", href, className = "" }: IButtonProps) {
-	if (href) {
-		return (
-			<Link href={href} className={`flex-center ${className}`}>
-				{children}
-			</Link>
-		);
-	}
+export default function Button({ children, type = "button", href, className }: IButtonProps) {
+	const Component: ElementType = href ? Link : "button";
 
 	return (
-		<button type={type} className={`flex-center ${className}`}>
+		<Component {...(href ? { href } : { type })} className={clsx("flex-center", className)}>
 			{children}
-		</button>
+		</Component>
 	);
 }

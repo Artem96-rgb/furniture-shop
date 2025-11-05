@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Search, Heart, ShoppingCart, Menu, Scale } from "lucide-react";
+import { Search, Heart, ShoppingCart, Menu as BurgerMenuIcon, Scale } from "lucide-react";
 import { useState } from "react";
 import { useCompareStore } from "@/store/compareProductsStore";
 import { useWishlistStore } from "@/store/wishlistProductsStore";
 import Logo from "@/components/Logo";
+import Menu from "@/components/Menu";
 
 export default function Header() {
 	// Get the list of products added to the compare list from the compare store
@@ -74,13 +75,7 @@ export default function Header() {
 					</Link>
 
 					<nav className="hidden lg:block">
-						<ul className="flex-center gap-19 flex-wrap">
-							{menuLinks.map(menuLink => (
-								<li key={menuLink.id}>
-									<Link href={menuLink.link}>{menuLink.title}</Link>
-								</li>
-							))}
-						</ul>
+						<Menu links={menuLinks} className="flex-center gap-19 flex-wrap" />
 					</nav>
 
 					<div className="flex-y-center justify-end gap-8 gap-xl-11.5 flex-wrap">
@@ -116,7 +111,7 @@ export default function Header() {
 						className="text-right lg:hidden"
 						onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
 					>
-						<Menu size="32" />
+						<BurgerMenuIcon size="32" />
 					</button>
 				</div>
 			</div>

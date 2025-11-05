@@ -9,11 +9,14 @@
 	--color-primary: #b88e2f;
 	--color-primary-25: #fff3e3;
 	--color-black: #333333;
+	--color-black-secondary: #000000;
+	--color-black-secondary-17: rgba(0, 0, 0, 0.17);
 	--color-gray-100: #e8e8e8;
 	--color-gray-400: #b0b0b0;
 	--color-gray-500: #898989;
 	--color-gray-600: #666666;
 	--color-gray-700: #727272;
+	--color-gray-800: #9F9F9F;
 	--color-accent: #e97171;
 	--color-green: #2ec1ac;
 	--color-light: #f4f5f7;
@@ -67,6 +70,12 @@
 	.h4 {
 		font-size: 24px;
 		font-weight: 600;
+	}
+
+	h6,
+	.h6 {
+		font-size: 16px;
+		font-weight: 500;
 	}
 
 	button {
