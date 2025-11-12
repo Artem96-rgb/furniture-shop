@@ -24,9 +24,10 @@ export default function HeroBlock({
 	return (
 		<div
 			className={clsx(
-				`bg-[url(${backgroundImageUrl})] bg-cover bg-center flex-y-center flex-col py-20.5 pb-24.5 px-2.5`,
+				`bg-cover bg-center flex-y-center flex-col py-20.5 pb-24.5 px-2.5`,
 				className
 			)}
+			style={{ backgroundImage: `url('/${backgroundImageUrl}')` }}
 		>
 			<Logo className="mb-4" />
 

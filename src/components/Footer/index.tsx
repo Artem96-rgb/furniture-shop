@@ -44,7 +44,7 @@ export default function Footer() {
 		<footer className="border-t border-black-secondary-17">
 			<div className="container">
 				{/* Footer Top */}
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-10 py-12">
+				<div className="grid grid-cols-1 md:grid-cols-4 py-12">
 					{/* Logo and address */}
 					<div>
 						<p className="h4 font-bold mb-12.5">Funiro.</p>

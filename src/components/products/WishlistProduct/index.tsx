@@ -4,7 +4,7 @@ import React from "react";
 import { useWishlistStore } from "@/store/wishlistProductsStore";
 
 interface IWishlistProductProps {
-	productId: number;
+	productId: string;
 	children: React.ReactNode;
 	className?: string;
 }

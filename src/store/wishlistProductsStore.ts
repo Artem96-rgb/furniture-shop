@@ -2,9 +2,9 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface IWishlistStore {
-	wishlistProducts: number[];
-	addWishlistProduct: (id: number) => void;
-	removeWishlistProduct: (id: number) => void;
+	wishlistProducts: string[];
+	addWishlistProduct: (id: string) => void;
+	removeWishlistProduct: (id: string) => void;
 }
 
 export const useWishlistStore = create<IWishlistStore>()(
@@ -12,14 +12,14 @@ export const useWishlistStore = create<IWishlistStore>()(
 		(set, get) => ({
 			wishlistProducts: [],
 
-			addWishlistProduct: (id: number) => {
+			addWishlistProduct: id => {
 				const { wishlistProducts } = get();
 				if (!wishlistProducts.includes(id)) {
 					set({ wishlistProducts: [...wishlistProducts, id] });
 				}
 			},
 
-			removeWishlistProduct: (id: number) => {
+			removeWishlistProduct: id => {
 				const { wishlistProducts } = get();
 				set({
 					wishlistProducts: wishlistProducts.filter(pid => pid !== id),

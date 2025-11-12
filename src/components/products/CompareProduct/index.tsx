@@ -4,7 +4,7 @@ import React from "react";
 import { useCompareStore } from "@/store/compareProductsStore";
 
 interface ICompareProductProps {
-	productId: number;
+	productId: string;
 	children: React.ReactNode;
 	className?: string;
 }

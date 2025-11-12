@@ -39,7 +39,7 @@ export default function HomeHeroBlock({
 
 				<p className="text-lg/6.5 font-medium mb-11.5 max-w-125">{description}</p>
 
-				<Button className="btn-primary h-18.5 max-w-55.5" href={link.href}>
+				<Button className="btn-primary font-bold h-18.5 max-w-55.5" href={link.href}>
 					{link.title}
 				</Button>
 			</div>

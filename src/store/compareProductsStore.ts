@@ -2,9 +2,9 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface ICompareStore {
-	compareProducts: number[];
-	addCompareProduct: (id: number) => void;
-	removeCompareProduct: (id: number) => void;
+	compareProducts: string[];
+	addCompareProduct: (id: string) => void;
+	removeCompareProduct: (id: string) => void;
 }
 
 export const useCompareStore = create<ICompareStore>()(
@@ -12,14 +12,14 @@ export const useCompareStore = create<ICompareStore>()(
 		(set, get) => ({
 			compareProducts: [],
 
-			addCompareProduct: (id: number) => {
+			addCompareProduct: id => {
 				const { compareProducts } = get();
 				if (!compareProducts.includes(id)) {
 					set({ compareProducts: [...compareProducts, id] });
 				}
 			},
 
-			removeCompareProduct: (id: number) => {
+			removeCompareProduct: id => {
 				const { compareProducts } = get();
 				set({
 					compareProducts: compareProducts.filter(pid => pid !== id),

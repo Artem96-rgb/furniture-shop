@@ -2,20 +2,30 @@
 
 import Link from "next/link";
 import { ReactNode, ElementType } from "react";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface IButtonProps {
 	children: ReactNode;
 	type?: "button" | "submit" | "reset";
 	href?: string;
 	className?: string;
+	onClick?: () => void;
 }
 
-export default function Button({ children, type = "button", href, className }: IButtonProps) {
+export default function Button({
+	children,
+	type = "button",
+	href,
+	className,
+	onClick,
+}: IButtonProps) {
 	const Component: ElementType = href ? Link : "button";
 
 	return (
-		<Component {...(href ? { href } : { type })} className={clsx("flex-center", className)}>
+		<Component
+			{...(href ? { href } : { type, onClick })}
+			className={cn("flex-center w-full text-base transition-ease-in-out border", className)}
+		>
 			{children}
 		</Component>
 	);
