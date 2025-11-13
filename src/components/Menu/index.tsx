@@ -21,7 +21,7 @@ export default function Menu({ className, links, classNameLink }: IMenuProps) {
 					<Link
 						href={link.link}
 						className={clsx(
-							"text-black-secondary font-medium hover:text-primary transition-ease-in-out",
+							"text-medium-base hover:text-primary-500 transition-ease-in-out",
 							classNameLink
 						)}
 					>

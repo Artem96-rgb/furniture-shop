@@ -25,7 +25,7 @@ export default function CategoriesBlock({
 			<div className="container xl:max-w-296">
 				<div className="text-center mb-10 lg:mb-15.5">
 					<h2>{sectionTitle}</h2>
-					<p className="text-xl text-gray-600">{sectionDescription}</p>
+					<p className="text-regular-xl-gray-800">{sectionDescription}</p>
 				</div>
 
 				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-5">
@@ -40,7 +40,7 @@ export default function CategoriesBlock({
 									className="rounded-md"
 								/>
 							</div>
-							<p className="text-xl lg:text-2xl/9 font-semibold text-center">
+							<p className="text-semibold-xl-neutral-700 lg:text-2xl/9 text-center">
 								{category.title}
 							</p>
 						</li>

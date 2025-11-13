@@ -4,6 +4,7 @@ import HeroBlock from "@/components/blocks/HeroBlock";
 import { products } from "@/data/products";
 import { useWishlistStore } from "@/store/wishlistProductsStore";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
+import NoProductsMessage from "@/components/blocks/NoProductsMessage";
 
 export default function WishlistPage() {
 	// Get the array of selected product IDs from the Zustand store
@@ -16,13 +17,20 @@ export default function WishlistPage() {
 	return (
 		<div>
 			<HeroBlock
-				backgroundImageUrl="/hero.jpg"
+				backgroundImageUrl="hero.jpg"
 				title="Wishlist"
 				breadcrumbTitle="Wishlist"
 				className="mb-8.5"
 			/>
 
-			<ProductsBlock products={selectedProducts} />
+			{wishlistProducts?.length > 0 ? (
+				<ProductsBlock products={selectedProducts} />
+			) : (
+				<NoProductsMessage
+					title="Your wishlist is empty"
+					subtitle="To add products to your wishlist, click the heart icon on the products you like."
+				/>
+			)}
 		</div>
 	);
 }

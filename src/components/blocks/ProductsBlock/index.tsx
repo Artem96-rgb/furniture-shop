@@ -81,7 +81,7 @@ export default function ProductsBlock({ products, title, displayMode = "none" }:
 
 										{/* Hover overlay */}
 										<ProductOverlay>
-											<button className="bg-white text-black font-medium py-2 px-6 rounded-md">
+											<button className="bg-white text-neutral-700 font-medium py-2 px-6 rounded-md">
 												Add to cart
 											</button>
 
@@ -89,7 +89,7 @@ export default function ProductsBlock({ products, title, displayMode = "none" }:
 												<button>Share</button>
 
 												<CompareProduct
-													className={`flex-y-center gap-0.5 text-base font-semibold ${isCompare ? "text-primary" : "text-white "}`}
+													className={`flex-y-center gap-0.5 text-base font-semibold ${isCompare ? "text-primary-500" : "text-white "}`}
 													productId={product.id}
 												>
 													<Scale size="16" />
@@ -97,7 +97,7 @@ export default function ProductsBlock({ products, title, displayMode = "none" }:
 												</CompareProduct>
 
 												<WishlistProduct
-													className={`flex-y-center gap-0.5 text-base font-semibold ${isWishlist ? "text-primary" : "text-white "}`}
+													className={`flex-y-center gap-0.5 text-base font-semibold ${isWishlist ? "text-primary-500" : "text-white "}`}
 													productId={product.id}
 												>
 													<Heart size="16" />
@@ -106,23 +106,24 @@ export default function ProductsBlock({ products, title, displayMode = "none" }:
 											</div>
 										</ProductOverlay>
 
-										<ProductBadge badge={product.badge} />
+										{product.badge && <ProductBadge badge={product.badge} />}
 									</div>
 
 									{/* Text content */}
 									<div className="bg-light pt-4 px-4 pb-7.5">
-										<p className="h4">{product.title}</p>
-										<p className="text-gray-500 text-base mb-2">
+										<p className="h4 mb-1.5">{product.title}</p>
+
+										<p className="text-medium-base-gray-600 mb-2">
 											{product.subtitle}
 										</p>
 
 										<div className="flex-y-center gap-4 flex-wrap">
-											<span className="text-xl font-semibold">
+											<span className="text-semibold-xl-neutral-600">
 												{product.price}
 											</span>
 
 											{product.oldPrice && (
-												<span className="text-base text-gray-400 line-through">
+												<span className="text-regular-16-gray-400 line-through">
 													{product.oldPrice}
 												</span>
 											)}
@@ -137,7 +138,7 @@ export default function ProductsBlock({ products, title, displayMode = "none" }:
 				{displayMode === "showMore" && visibleCount < products.length && (
 					<Button
 						onClick={handleShowMore}
-						className="max-w-61.5 h-12 border border-primary text-primary font-semibold mt-8 mx-auto hover:bg-primary hover:text-white"
+						className="max-w-61.5 h-12 border border-primary text-primary-500 font-semibold mt-8 mx-auto hover:bg-primary-500 hover:text-white"
 					>
 						Show More
 					</Button>

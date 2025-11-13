@@ -32,12 +32,14 @@ export default function HomeHeroBlock({
 				<Image src={image.src} alt={image.alt} width={image.width} height={image.height} />
 			</div>
 
-			<div className="absolute bottom-30 right-14.5 bg-primary-25 max-w-160 w-full pt-15.5 px-10 pb-9.5">
-				<p className="text-base font-semibold mb-1">{subtitle}</p>
+			<div className="absolute bottom-30 right-14.5 bg-primary-500-25 max-w-160 w-full pt-15.5 px-10 pb-9.5">
+				<p className="text-semibold-base-neutral-700 mb-1">{subtitle}</p>
 
-				<h1 className="mb-4.5 text-primary max-w-100">{title}</h1>
+				<h1 className="mb-4.5 text-primary-500 max-w-100">{title}</h1>
 
-				<p className="text-lg/6.5 font-medium mb-11.5 max-w-125">{description}</p>
+				<p className="text-medium-lg-gray-700 mb-11.5 max-w-125 leading-6.5">
+					{description}
+				</p>
 
 				<Button className="btn-primary font-bold h-18.5 max-w-55.5" href={link.href}>
 					{link.title}

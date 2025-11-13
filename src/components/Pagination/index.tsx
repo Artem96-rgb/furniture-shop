@@ -18,7 +18,7 @@ export default function Pagination({ totalPages, currentPage, onPageChange }: IP
 					className={`w-15 h-15 text-xl rounded-xl ${
 						currentPage === i + 1
 							? "btn-primary"
-							: "text-black-secondary bg-primary-25 border-transparent"
+							: "text-neutral-700-secondary bg-light-secondary border-transparent"
 					}`}
 				>
 					{i + 1}

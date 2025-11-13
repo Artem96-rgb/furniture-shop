@@ -34,13 +34,13 @@ export default function HeroBlock({
 			<h1 className="mb-3">{title}</h1>
 
 			<div className="flex-y-center flex-wrap gap-1.5">
-				<Link className="text-base font-medium" href="/">
+				<Link className="text-medium-base" href="/">
 					Home
 				</Link>
 
 				<ChevronRight size={20} />
 
-				<p className="text-base font-light">{breadcrumbTitle}</p>
+				<p className="text-light-base">{breadcrumbTitle}</p>
 			</div>
 		</div>
 	);

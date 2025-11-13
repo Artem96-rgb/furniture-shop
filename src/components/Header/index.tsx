@@ -7,6 +7,8 @@ import { useCompareStore } from "@/store/compareProductsStore";
 import { useWishlistStore } from "@/store/wishlistProductsStore";
 import Logo from "@/components/Logo";
 import Menu from "@/components/Menu";
+import BadgeCount from "@/components/ui/BadgeCount";
+import Button from "@/components/ui/Button";
 
 export default function Header() {
 	// Get the list of products added to the compare list from the compare store
@@ -39,26 +41,22 @@ export default function Header() {
 		{
 			id: "header-icon-search",
 			icon: Search,
-			type: "button",
 		},
 		{
 			id: "header-icon-heart",
 			icon: Heart,
 			productCount: wishlistProducts.length,
-			type: "link",
 			href: "/wishlist",
 		},
 		{
 			id: "header-icon-compare",
 			icon: Scale,
 			productCount: compareProducts.length,
-			type: "link",
 			href: "/comparison",
 		},
 		{
 			id: "header-icon-shopping-cart",
 			icon: ShoppingCart,
-			type: "button",
 		},
 	];
 
@@ -69,9 +67,7 @@ export default function Header() {
 					<Link href="/" className="flex-y-center gap-1.25 flex-wrap">
 						<Logo />
 
-						<span className="inline-block font-bold text-[32px] leading-10.5">
-							Furniro
-						</span>
+						<span className="inline-block text-bold-32 leading-10.5">Furniro</span>
 					</Link>
 
 					<nav className="hidden lg:block">
@@ -79,28 +75,21 @@ export default function Header() {
 					</nav>
 
 					<div className="flex-y-center justify-end gap-8 gap-xl-11.5 flex-wrap">
-						{headerIcons.map(item => {
+						{headerIcons?.map(item => {
 							const Icon = item.icon;
-
-							const Badge = item.productCount !== undefined && (
-								<span className="absolute -top-4 -right-4 w-5 h-5 rounded-full bg-primary text-white text-sm flex-center">
-									{item.productCount}
-								</span>
-							);
 
 							return (
 								<div key={item.id} className="relative">
-									{item.type === "link" ? (
-										<Link href={item.href!} className="block">
-											<Icon size={28} />
-											{Badge}
-										</Link>
-									) : (
-										<button type="button" className="block">
-											<Icon size={28} />
-											{Badge}
-										</button>
-									)}
+									<Button
+										href={item.href}
+										className="border-none hover:text-primary-500"
+									>
+										<Icon size={28} />
+
+										{item.productCount != undefined && (
+											<BadgeCount>{item.productCount}</BadgeCount>
+										)}
+									</Button>
 								</div>
 							);
 						})}

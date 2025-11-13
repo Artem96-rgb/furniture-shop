@@ -6,20 +6,30 @@
 }
 
 @theme {
-	--color-primary: #b88e2f;
-	--color-primary-25: #fff3e3;
-	--color-black: #333333;
-	--color-black-secondary: #000000;
-	--color-black-secondary-17: rgba(0, 0, 0, 0.17);
-	--color-gray-100: #e8e8e8;
+	--color-primary-100:  #faf3ea;
+	--color-primary-200: #fff3e3;
+	--color-primary-500: #b88e2f;
+
+	--color-black: #000000;
+	--color-neutral-600: #3a3a3a;
+	--color-neutral-700: #333333;
+	--color-neutral-800: #242424;
+
+	--color-gray-100: #faf3ea;
+	--color-gray-200: #f4f5f7;
+	--color-gray-300: #d9d9d9;
 	--color-gray-400: #b0b0b0;
-	--color-gray-500: #898989;
-	--color-gray-600: #666666;
+	--color-gray-500: #9f9f9f;
+	--color-gray-600: #898989;
 	--color-gray-700: #727272;
-	--color-gray-800: #9f9f9f;
-	--color-accent: #e97171;
-	--color-green: #2ec1ac;
+	--color-gray-800: #666666;
+	--color-gray-900: #616161;
+
+	--color-accent-red: #e97171;
+	--color-accent-green: #2ec1ac;
+
 	--color-light: #f4f5f7;
+	--color-light-secondary: #f9f1e7;
 }
 
 @utility container {
@@ -38,25 +48,129 @@
 	@apply transition duration-300 ease-in-out;
 }
 
-/*transition duration-300 ease-in-out*/
-
 @utility btn-primary {
-	@apply bg-primary text-white border-primary hover:bg-white hover:text-primary;
+	@apply bg-primary-500 text-white border-primary-500 hover:bg-white hover:text-primary-500;
+}
+
+/* ---------- REGULAR (400) ---------- */
+@utility text-regular-14-white {
+	@apply text-sm text-white;
+}
+@utility text-regular-14-gray-500 {
+	@apply text-sm text-gray-500;
+}
+
+@utility text-regular-16-gray-400 {
+	@apply text-base text-gray-400;
+}
+
+@utility text-regular-16-gray-500 {
+	@apply text-base text-gray-500;
+}
+
+@utility text-regular-xl-black {
+	@apply text-xl text-black;
+}
+@utility text-regular-xl-gray-800 {
+	@apply text-xl text-gray-800;
+}
+@utility text-regular-2xl-gray-500 {
+	@apply text-2xl text-gray-500;
+}
+
+/* ---------- MEDIUM (500) ---------- */
+@utility text-medium-sm-black {
+	@apply text-sm font-medium text-black;
+}
+
+@utility text-medium-sm-white {
+	@apply text-sm font-medium text-white;
+}
+
+@utility text-light-base {
+	@apply text-base font-light;
+}
+
+@utility text-medium-base {
+	@apply text-base font-medium;
+}
+
+@utility text-medium-base-gray-600 {
+	@apply text-base font-medium text-gray-600;
+}
+
+@utility text-medium-base-white {
+	@apply text-base font-medium text-white;
+}
+
+@utility text-medium-base-gray-500 {
+	@apply text-base font-medium text-gray-500;
+}
+
+@utility text-medium-lg-gray-700 {
+	@apply text-lg font-medium text-neutral-700;
+}
+
+@utility text-medium-lg-black {
+	@apply text-lg font-medium text-black;
+}
+
+@utility text-medium-xl-gray-600 {
+	@apply text-xl font-medium text-gray-600;
+}
+@utility text-medium-xl-gray-700 {
+	@apply text-xl font-medium text-gray-700;
+}
+@utility text-medium-xl-primary {
+	@apply text-xl font-medium text-primary-500;
+}
+
+@utility text-medium-2xl-gray-500 {
+	@apply text-2xl font-medium text-gray-500;
+}
+@utility text-medium-2xl-black {
+	@apply text-2xl font-medium text-black;
+}
+
+/* ---------- SEMIBOLD (600) ---------- */
+@utility text-semibold-sm-white {
+	@apply text-sm font-semibold text-white;
+}
+
+@utility text-semibold-base-neutral-700 {
+	@apply text-base font-semibold text-neutral-700;
+}
+
+@utility text-semibold-base-white {
+	@apply text-base font-semibold text-white;
+}
+
+@utility text-semibold-base-primary {
+	@apply text-base font-semibold text-primary-500;
+}
+
+@utility text-semibold-xl-neutral-600 {
+	@apply text-xl font-semibold text-neutral-600;
+}
+
+@utility text-semibold-xl-neutral-700 {
+	@apply text-xl font-semibold text-neutral-700;
+}
+
+/* ---------- BOLD (700) ---------- */
+@utility text-bold-32 {
+	@apply text-[32px] font-bold;
 }
 
 @layer base {
 	h1,
 	.h1 {
-		font-size: 52px;
-		font-weight: bold;
-		line-height: 1.22;
+		@apply text-[32px] md:text-[40px] lg:text-[52px]/16.25 font-bold;
 	}
 
 	h2,
 	.h2 {
-		font-size: 40px;
-		font-weight: bold;
-		line-height: 1.22;
+		@apply text-[26px] md:text-[32px] lg:text-[40px]/12 font-bold;
 	}
 
 	h3,
@@ -68,14 +182,12 @@
 
 	h4,
 	.h4 {
-		font-size: 24px;
-		font-weight: 600;
+		@apply text-2xl font-semibold;
 	}
 
 	h6,
 	.h6 {
-		font-size: 16px;
-		font-weight: 500;
+		@apply text-base font-medium;
 	}
 
 	button {
@@ -100,11 +212,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--color-primary-25);
+	background: var(--color-primary-200);
 	border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--color-primary);
+	background: var(--color-primary-100);
 	border-radius: 6px;
 }
