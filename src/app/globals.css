@@ -6,7 +6,7 @@
 }
 
 @theme {
-	--color-primary-100:  #faf3ea;
+	--color-primary-100: #faf3ea;
 	--color-primary-200: #fff3e3;
 	--color-primary-500: #b88e2f;
 
@@ -217,6 +217,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--color-primary-100);
+	background: var(--color-primary-500);
 	border-radius: 6px;
 }

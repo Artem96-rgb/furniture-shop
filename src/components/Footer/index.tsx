@@ -41,7 +41,7 @@ export default function Footer() {
 	];
 
 	return (
-		<footer className="border-t border-neutral-700-secondary-17">
+		<footer className="border-t border-gray-300">
 			<div className="container">
 				{/* Footer Top */}
 				<div className="grid grid-cols-1 md:grid-cols-4 py-12">
@@ -87,7 +87,7 @@ export default function Footer() {
 				</div>
 
 				{/* Footer Bottom */}
-				<div className="border-t border-neutral-700-secondary-17 py-9">
+				<div className="border-t border-gray-300 py-9">
 					<p className="text-base">
 						© {new Date().getFullYear()} Funiro. All rights reserved
 					</p>
