@@ -2,6 +2,8 @@
 
 import React from "react";
 import { useWishlistStore } from "@/store/wishlistProductsStore";
+import Button from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
 interface IWishlistProductProps {
 	productId: string;
@@ -14,7 +16,10 @@ export default function WishlistProduct({ productId, children, className }: IWis
 
 	const isAdded = wishlistProducts.includes(productId);
 
-	const handleClick = () => {
+	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		e.stopPropagation();
+
 		if (isAdded) {
 			removeWishlistProduct(productId);
 		} else {
@@ -23,8 +28,11 @@ export default function WishlistProduct({ productId, children, className }: IWis
 	};
 
 	return (
-		<button className={className} type="button" onClick={handleClick}>
+		<Button
+			className={cn("w-8 h-8 bg-primary-500 rounded-full border-none text-white", className)}
+			onClick={handleClick}
+		>
 			{children}
-		</button>
+		</Button>
 	);
 }

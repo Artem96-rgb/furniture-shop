@@ -1,15 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode, ElementType } from "react";
+import { ReactNode, ElementType, ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-interface IButtonProps {
+// interface IButtonProps {
+// 	children: ReactNode;
+// 	type?: "button" | "submit" | "reset";
+// 	href?: string;
+// 	className?: string;
+// 	onClick?: () => void;
+// }
+
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children: ReactNode;
-	type?: "button" | "submit" | "reset";
 	href?: string;
-	className?: string;
-	onClick?: () => void;
 }
 
 export default function Button({

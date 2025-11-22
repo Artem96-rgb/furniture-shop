@@ -58,7 +58,12 @@ export default function Home() {
 				categories={categories}
 			/>
 
-			<ProductsBlock title="Our Products" products={products} displayMode="showMore" />
+			<ProductsBlock
+				title="Our Products"
+				products={products}
+				displayMode="showMore"
+				className="mb-15.5"
+			/>
 		</>
 	);
 }

@@ -52,10 +52,15 @@
 	@apply bg-primary-500 text-white border-primary-500 hover:bg-white hover:text-primary-500;
 }
 
+@utility btn-white {
+	@apply bg-white text-black border-black hover:bg-primary-500 hover:text-white hover:border-primary-500;
+}
+
 /* ---------- REGULAR (400) ---------- */
 @utility text-regular-14-white {
 	@apply text-sm text-white;
 }
+
 @utility text-regular-14-gray-500 {
 	@apply text-sm text-gray-500;
 }
@@ -71,9 +76,11 @@
 @utility text-regular-xl-black {
 	@apply text-xl text-black;
 }
+
 @utility text-regular-xl-gray-800 {
 	@apply text-xl text-gray-800;
 }
+
 @utility text-regular-2xl-gray-500 {
 	@apply text-2xl text-gray-500;
 }

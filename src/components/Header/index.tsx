@@ -23,17 +23,17 @@ export default function Header() {
 		{
 			id: "menu-link-shop",
 			title: "Shop",
-			link: "shop",
+			link: "/shop",
 		},
 		{
 			id: "menu-link-about",
 			title: "About",
-			link: "about",
+			link: "/about",
 		},
 		{
 			id: "menu-link-contact",
 			title: "Contact",
-			link: "contact",
+			link: "/contact",
 		},
 	];
 

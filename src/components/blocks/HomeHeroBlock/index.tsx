@@ -2,14 +2,10 @@
 
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { IImage } from "@/types";
 
 interface IHomeHeroBlockProps {
-	image: {
-		src: string;
-		alt: string;
-		width: number;
-		height: number;
-	};
+	image: IImage;
 	subtitle: string;
 	title: string;
 	description: string;
