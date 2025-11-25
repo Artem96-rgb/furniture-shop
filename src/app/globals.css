@@ -52,8 +52,8 @@
 	@apply bg-primary-500 text-white border-primary-500 hover:bg-white hover:text-primary-500;
 }
 
-@utility btn-white {
-	@apply bg-white text-black border-black hover:bg-primary-500 hover:text-white hover:border-primary-500;
+@utility btn-transparent {
+	@apply bg-transparent text-black border-black hover:bg-primary-500 hover:text-white hover:border-primary-500;
 }
 
 /* ---------- REGULAR (400) ---------- */
@@ -122,6 +122,10 @@
 	@apply text-lg font-medium text-black;
 }
 
+@utility text-medium-xl {
+	@apply text-xl font-medium;
+}
+
 @utility text-medium-xl-gray-600 {
 	@apply text-xl font-medium text-gray-600;
 }
@@ -157,11 +161,19 @@
 }
 
 @utility text-semibold-xl-neutral-600 {
-	@apply text-xl font-semibold text-neutral-600;
+	@apply text-base lg:text-xl font-semibold text-neutral-600;
 }
 
 @utility text-semibold-xl-neutral-700 {
 	@apply text-xl font-semibold text-neutral-700;
+}
+
+@utility text-semibold-xl-accent-red {
+	@apply text-xl font-semibold text-accent-red;
+}
+
+@utility text-semibold-32 {
+	@apply text-[32px] font-semibold;
 }
 
 /* ---------- BOLD (700) ---------- */
@@ -192,17 +204,22 @@
 		@apply text-2xl font-semibold;
 	}
 
+	h5,
+	.h5 {
+		@apply text-xl font-semibold;
+	}
+
 	h6,
 	.h6 {
 		@apply text-base font-medium;
 	}
 
 	button {
-		cursor: pointer;
+		@apply cursor-pointer transition-ease-in-out;
 	}
 
 	a {
-		display: inline-block;
+		@apply inline transition-ease-in-out;
 	}
 }
 
@@ -226,4 +243,34 @@ body {
 ::-webkit-scrollbar-thumb {
 	background: var(--color-primary-500);
 	border-radius: 6px;
+}
+
+#product-gallery-slider .swiper-button-prev,
+#product-gallery-slider .swiper-button-next {
+	background: var(--color-primary-500);
+	border-radius: 50%;
+}
+
+#product-gallery-slider .swiper-button-prev {
+	left: 20px;
+}
+
+#product-gallery-slider .swiper-button-next {
+	right: 20px;
+}
+
+#product-gallery-slider .swiper-button-prev svg,
+#product-gallery-slider .swiper-button-next svg{
+	width: 20px;
+	height: 20px;
+	color: var(--color-white);
+}
+
+#product-gallery-slider-thumbs .swiper-slide {
+	border: 2px solid transparent;
+	border-radius: 12px;
+}
+
+#product-gallery-slider-thumbs .swiper-slide.swiper-slide-thumb-active {
+	border: 2px solid var(--color-primary-500);
 }

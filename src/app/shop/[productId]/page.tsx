@@ -7,7 +7,7 @@ import Image from "next/image";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
 import Breadcrumbs from "@/components/blocks/Breadcrumbs";
 import Button from "@/components/ui/Button";
-import { Minus, Plus } from "lucide-react";
+import ShoppingCartAction from "@/components/products/shoppingCart/ShoppingCartAction";
 
 export default function ProductPage() {
 	// get the parameter from the URL
@@ -100,21 +100,12 @@ export default function ProductPage() {
 					)}
 
 					<div className="flex gap-2.5 flex-wrap mb-7.5 lg:mb-15">
-						<div className="max-w-31 w-full justify-between h-14 rounded-md px-2 mr-2 border border-gray-500 flex-y-center justify-between">
-							<Button className="w-6 h-6 border-none">
-								<Minus size={16} />
-							</Button>
-
-							<span className="grow text-center text-base">0</span>
-
-							<Button className="w-6 h-6 border-none">
-								<Plus size={16} />
-							</Button>
-						</div>
-
-						<Button className="max-w-54 h-14 rounded-md px-2 btn-white text-xl">
+						<ShoppingCartAction
+							className="max-w-54 h-14 rounded-md px-2 btn-transparent text-xl"
+							productId={productId}
+						>
 							Add To Cart
-						</Button>
+						</ShoppingCartAction>
 					</div>
 
 					<hr className="text-gray-300 mb-8 lg:mb-10.5" />

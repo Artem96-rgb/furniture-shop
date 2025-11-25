@@ -9,8 +9,8 @@ export interface IProduct {
 	id: string;
 	title: string;
 	subtitle: string;
-	price: string;
-	oldPrice?: string;
+	price: number;
+	oldPrice?: number;
 	badge?: {
 		discount?: string;
 		new?: boolean;

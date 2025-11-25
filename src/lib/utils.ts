@@ -14,3 +14,11 @@ import clsx from "clsx";
 export function cn(...inputs: (string | undefined | null | false)[]) {
 	return twMerge(clsx(inputs));
 }
+
+/**
+ * Format a number as currency with dots as thousand separators.
+ * Example: 500000 -> "500.000", 7500000 -> "7.500.000"
+ */
+export function formatPrice(price: number): string {
+	return price.toLocaleString("id-ID");
+}

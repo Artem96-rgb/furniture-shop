@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import ProductBadge from "@/components/ui/ProductBadge";
-import CompareProduct from "@/components/products/CompareProduct";
+import CompareProduct from "../../products/compare/CompareProduct";
 import { Scale, Heart } from "lucide-react";
 import ProductImage from "@/components/ui/ProductImage";
 import { IProduct } from "@/types";
-import WishlistProduct from "@/components/products/WishlistProduct";
+import WishlistProduct from "../../products/wishlist/WishlistProduct";
 import Button from "@/components/ui/Button";
 import Pagination from "@/components/Pagination";
 import Link from "next/link";
+import ProductPrice from "@/components/products/ProductPrice";
 
 interface IProductsBlcokProps {
 	products: IProduct[];
@@ -104,14 +105,17 @@ export default function ProductsBlock({
 										</p>
 
 										<div className="flex-y-center gap-4 flex-wrap">
-											<span className="text-semibold-xl-neutral-600">
-												{product.price}
-											</span>
+											<ProductPrice
+												price={product.price}
+												className="text-semibold-xl-neutral-600"
+											/>
 
 											{product.oldPrice && (
-												<span className="text-regular-16-gray-400 line-through">
-													{product.oldPrice}
-												</span>
+												<ProductPrice
+													price={product.price}
+													oldPrice
+													className="text-regular-16-gray-400"
+												/>
 											)}
 										</div>
 									</div>

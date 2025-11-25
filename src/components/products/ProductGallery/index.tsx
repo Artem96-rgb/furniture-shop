@@ -11,8 +11,8 @@ import "swiper/css/navigation";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import { Heart, Scale } from "lucide-react";
-import CompareProduct from "@/components/products/CompareProduct";
-import WishlistProduct from "@/components/products/WishlistProduct";
+import CompareProduct from "../compare/CompareProduct";
+import WishlistProduct from "../wishlist/WishlistProduct";
 
 interface IProductGalleryProps {
 	images: string[];
@@ -25,22 +25,13 @@ export default function ProductGallery({ images, className, productId }: IProduc
 
 	return (
 		<div className={cn("space-y-5", className)}>
-			{/* Large Image */}
-			{/*<div className="w-full flex items-center justify-center relative">*/}
-			{/*	<Image*/}
-			{/*		src={activeImage}*/}
-			{/*		alt="product"*/}
-			{/*		width="570"*/}
-			{/*		height="602"*/}
-			{/*		className="rounded-xl"*/}
-			{/*	/>*/}
-
 			<Swiper
 				spaceBetween={12}
 				slidesPerView={1}
 				navigation={true}
 				thumbs={{ swiper: thumbsSwiper }}
 				modules={[FreeMode, Navigation, Thumbs]}
+				id="product-gallery-slider"
 			>
 				{images.map(img => (
 					<SwiperSlide key={img}>
@@ -75,6 +66,7 @@ export default function ProductGallery({ images, className, productId }: IProduc
 				freeMode={true}
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
+				id="product-gallery-slider-thumbs"
 			>
 				{images.map(img => (
 					<SwiperSlide key={img}>

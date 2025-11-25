@@ -9,6 +9,7 @@ interface ICompareProductProps {
 	productId: string;
 	children: React.ReactNode;
 	className?: string;
+	href?: string;
 }
 
 export default function CompareProduct({ productId, children, className }: ICompareProductProps) {
