@@ -114,7 +114,7 @@ export default function CartPage() {
 						</div>
 
 						<div className="lg:basis-[394px] min-w-0 text-center p-4 space-y-4 bg-light-secondary">
-							<p className="text-semibold-32">Cart Totals</p>
+							<p className="h4">Cart Totals</p>
 
 							<div className="flex-center gap-2">
 								<p className="text-medium-xl">Total:</p>

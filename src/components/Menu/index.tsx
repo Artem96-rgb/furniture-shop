@@ -20,10 +20,7 @@ export default function Menu({ className, links, classNameLink }: IMenuProps) {
 				<li key={link.id}>
 					<Link
 						href={link.link}
-						className={clsx(
-							"text-medium-base hover:text-primary-500 transition-ease-in-out",
-							classNameLink
-						)}
+						className={clsx("text-medium-base hover:text-primary-500", classNameLink)}
 					>
 						{link.title}
 					</Link>

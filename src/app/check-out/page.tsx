@@ -6,6 +6,8 @@ import React from "react";
 import { useShoppingCartStore } from "@/store/shoppingCartStore";
 import { products } from "@/data/products";
 import NoProductsMessage from "@/components/blocks/NoProductsMessage";
+import { features } from "@/data/features";
+import FeaturesBlock from "@/components/blocks/FeaturesBlock";
 
 export default function CheckOutPage() {
 	// Get the array of selected product IDs from the Zustand store
@@ -26,14 +28,14 @@ export default function CheckOutPage() {
 				backgroundImageUrl="hero.jpg"
 				title="Checkout"
 				breadcrumbTitle="Checkout"
-				className="mb-24.5"
+				className="mb-10 lg:mb-24.5"
 			/>
 
-			<div className="container">
+			<div className="container mb-16 lg:mb-32">
 				{selectedProducts?.length > 0 ? (
-					<div className="grid grid-cols-2 gap-6.5">
+					<div className="grid lg:grid-cols-2 gap-6.5">
 						<div>
-							<p>Billing details</p>
+							<p className="h4 mb-5 lg:mb-9">Billing details</p>
 							<BillingForm></BillingForm>
 						</div>
 					</div>
@@ -44,6 +46,8 @@ export default function CheckOutPage() {
 					/>
 				)}
 			</div>
+
+			<FeaturesBlock features={features} />
 		</>
 	);
 }

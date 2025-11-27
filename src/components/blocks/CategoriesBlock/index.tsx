@@ -22,7 +22,7 @@ export default function CategoriesBlock({
 }: ICategoriesBlockProps) {
 	return (
 		<div className="relative mb-14">
-			<div className="container xl:max-w-296">
+			<div className="container">
 				<div className="text-center mb-10 lg:mb-15.5">
 					<h2>{sectionTitle}</h2>
 					<p className="text-regular-xl-gray-800">{sectionDescription}</p>
@@ -30,19 +30,16 @@ export default function CategoriesBlock({
 
 				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-5">
 					{categories?.map(category => (
-						<li key={category.id}>
-							<div className="mb-2 lg:mb-7.5">
-								<Image
-									src={category.image.src}
-									alt={category.image.alt}
-									width="381"
-									height="440"
-									className="rounded-md"
-								/>
-							</div>
-							<p className="text-semibold-xl-neutral-700 lg:text-2xl/9 text-center">
-								{category.title}
-							</p>
+						<li key={category.id} className="space-y-2 lg:space-y-7.5">
+							<Image
+								src={category.image.src}
+								alt={category.image.alt}
+								width="572"
+								height="720"
+								className="rounded-lg"
+							/>
+
+							<p className="text-center h6">{category.title}</p>
 						</li>
 					))}
 				</ul>

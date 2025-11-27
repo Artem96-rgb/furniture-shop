@@ -1,7 +1,7 @@
 "use client";
 
 import Menu from "@/components/Menu";
-import Button from "@/components/ui/Button";
+import Subscribe from "@/components/Subscribe";
 
 export default function Footer() {
 	const menuLinks = [
@@ -43,11 +43,9 @@ export default function Footer() {
 	return (
 		<footer className="border-t border-gray-300">
 			<div className="container">
-				{/* Footer Top */}
-				<div className="grid grid-cols-1 md:grid-cols-4 py-12">
-					{/* Logo and address */}
-					<div>
-						<p className="h4 font-bold mb-12.5">Funiro.</p>
+				<div className="flex max-lg:flex-col py-8 lg:py-12 gap-10 lg:gap-18">
+					<div className="order-1 lg:max-w-67.5">
+						<p className="h6 mb-5 lg:mb-15.5 leading-none">Funiro.</p>
 						<p className="text-regular-16-gray-500">
 							400 University Drive Suite 200 Coral Gables,
 							<br />
@@ -55,39 +53,26 @@ export default function Footer() {
 						</p>
 					</div>
 
-					{/* Links */}
-					<div>
-						<p className="h6 text-gray-500 mb-15.5">Links</p>
-						<Menu links={menuLinks} className="space-y-11.5" />
+					<div className="order-3 lg:order-2 flex justify-between xl:ml-16 gap-20 xl:gap-36">
+						<div>
+							<p className="text-medium-base-gray-500 mb-5 lg:mb-15.5">Links</p>
+							<Menu links={menuLinks} className="space-y-5 lg:space-y-11.5" />
+						</div>
+
+						<div>
+							<p className="text-medium-base-gray-500 mb-5 lg:mb-15.5">Help</p>
+							<Menu links={helpLinks} className="space-y-5 lg:space-y-11.5" />
+						</div>
 					</div>
 
-					{/* Help */}
-					<div>
-						<p className="h6 text-gray-500 mb-15.5">Help</p>
-						<Menu links={helpLinks} className="space-y-11.5" />
-					</div>
+					<div className="order-2 lg:order-3">
+						<p className="text-medium-base-gray-500 mb-5 lg:mb-15.5">Newsletter</p>
 
-					{/* Newsletter */}
-					<div>
-						<p className="h6 text-gray-500 mb-15.5">Newsletter</p>
-						<form className="flex flex-wrap gap-4 max-w-sm">
-							<input
-								type="email"
-								placeholder="Enter Your Email Address"
-								className="flex-1 py-2 text-sm outline-none placeholder-gray-800 border-b border-neutral-700-secondary"
-							/>
-							<Button
-								type="submit"
-								className="text-neutral-700 font-semibold text-sm tracking-wide border-b border-neutral-700-secondary"
-							>
-								SUBSCRIBE
-							</Button>
-						</form>
+						<Subscribe />
 					</div>
 				</div>
 
-				{/* Footer Bottom */}
-				<div className="border-t border-gray-300 py-9">
+				<div className="border-t border-gray-300 py-5 lg:py-9">
 					<p className="text-base">
 						© {new Date().getFullYear()} Funiro. All rights reserved
 					</p>

@@ -28,10 +28,10 @@ export default function ContactInfo() {
 		<div className="space-y-10">
 			{contactInfo.map(item => (
 				<div key={item.id} className="flex items-start gap-5">
-					<div className="text-neutral-700 shrink-0">{item.icon}</div>
+					<div className="text-neutral-700 shrink-0 mt-1.25">{item.icon}</div>
 
 					<div>
-						<p className="h4 mb-1">{item.title}</p>
+						<p className="h6 mb-1">{item.title}</p>
 
 						{item.content.map((line, index) => (
 							<p key={index} className="text-base">

@@ -9,6 +9,7 @@ import Button from "@/components/ui/Button";
 import CompareLink from "@/components/products/compare/CompareLInk";
 import WishlistLink from "@/components/products/wishlist/WishlistLink";
 import ShoppingCartLink from "@/components/products/shoppingCart/ShoppingCartLink";
+import Search from "@/components/products/Search";
 
 export default function Header() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,6 +50,8 @@ export default function Header() {
 					</nav>
 
 					<div className="flex-y-center justify-end gap-8 gap-xl-10 flex-wrap max-lg:order-2">
+						<Search />
+
 						<WishlistLink showCount className="flex-center">
 							<Heart size={28} />
 						</WishlistLink>
@@ -70,6 +73,7 @@ export default function Header() {
 						<BurgerMenuIcon size="32" />
 					</button>
 				</div>
+
 				<div className="lg:hidden">
 					<div
 						className={`

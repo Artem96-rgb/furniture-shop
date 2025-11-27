@@ -8,16 +8,24 @@ interface IFormInputProps {
 	className?: string;
 	placeholder?: string;
 	register?: UseFormRegisterReturn;
+	type?: string;
 }
 
-export default function FormInput({ id, className = "", placeholder, register }: IFormInputProps) {
+export default function FormInput({
+	id,
+	className = "",
+	placeholder,
+	register,
+	type = "text",
+}: IFormInputProps) {
 	return (
 		<input
 			id={id}
 			placeholder={placeholder}
+			type={type}
 			{...(register ? register : {})}
 			className={cn(
-				"w-full border border-gray-500 rounded-lg h-18.75 px-8 text-base placeholder:text-gray-500",
+				"w-full border border-gray-500 rounded-lg h-13 px-8 text-base placeholder:text-gray-500 focus:outline-0 block",
 				className
 			)}
 		/>

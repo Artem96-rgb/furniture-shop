@@ -44,9 +44,19 @@ export default function ContactForm() {
 				<FormInput
 					id="email"
 					placeholder="Your email address"
-					register={register("email", { required: true })}
+					register={register("email", { required: true, pattern: /^\S+@\S+$/i })}
 				/>
-				{errors.email && <FormError message="Please enter your email address" />}
+				{errors.email && (
+					<FormError
+						message={
+							errors.email.type === "required"
+								? "Email is required"
+								: errors.email.type === "pattern"
+									? 'Email must contain "@" and text after it'
+									: "Invalid email"
+						}
+					/>
+				)}
 			</div>
 
 			{/* Subject */}

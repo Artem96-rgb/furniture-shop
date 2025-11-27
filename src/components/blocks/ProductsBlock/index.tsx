@@ -2,17 +2,17 @@
 
 import React, { useState, useRef } from "react";
 import ProductBadge from "@/components/ui/ProductBadge";
-import CompareProduct from "../../products/compare/CompareProduct";
+import CompareProduct from "@/components/products/compare/CompareProduct";
 import { Scale, Heart } from "lucide-react";
 import ProductImage from "@/components/ui/ProductImage";
 import { IProduct } from "@/types";
-import WishlistProduct from "../../products/wishlist/WishlistProduct";
+import WishlistProduct from "@/components/products/wishlist/WishlistProduct";
 import Button from "@/components/ui/Button";
 import Pagination from "@/components/Pagination";
 import Link from "next/link";
 import ProductPrice from "@/components/products/ProductPrice";
 
-interface IProductsBlcokProps {
+interface IProductsBlockProps {
 	products: IProduct[];
 	title?: string;
 	displayMode?: "showMore" | "pagination" | "none";
@@ -26,7 +26,7 @@ export default function ProductsBlock({
 	displayMode = "none",
 	productCount = 8,
 	className,
-}: IProductsBlcokProps) {
+}: IProductsBlockProps) {
 	// Use a dynamic HTML tag based on whether the title exists.
 	// If there is a title, render a <section>; otherwise, render a <div>.
 	const Tag = title ? "section" : "div";
@@ -98,7 +98,7 @@ export default function ProductsBlock({
 
 									{/* Text content */}
 									<div className="bg-light pt-4 px-4 pb-7.5 grow">
-										<p className="h4 mb-1.5 line-clamp-2">{product.title}</p>
+										<p className="h6 mb-1.5 line-clamp-2">{product.title}</p>
 
 										<p className="text-medium-base-gray-600 mb-2 line-clamp-2">
 											{product.subtitle}
@@ -112,7 +112,7 @@ export default function ProductsBlock({
 
 											{product.oldPrice && (
 												<ProductPrice
-													price={product.price}
+													price={product.oldPrice}
 													oldPrice
 													className="text-regular-16-gray-400"
 												/>
