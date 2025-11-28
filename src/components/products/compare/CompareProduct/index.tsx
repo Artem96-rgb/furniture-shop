@@ -3,7 +3,7 @@
 import React from "react";
 import { useCompareStore } from "@/store/compareProductsStore";
 import Button from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
+import { cn, notifySuccess } from "@/lib/utils";
 
 interface ICompareProductProps {
 	productId: string;
@@ -25,17 +25,25 @@ export default function CompareProduct({ productId, children, className }: IComp
 
 		if (isAdded) {
 			removeCompareProduct(productId);
+			notifySuccess("Product removed");
 		} else {
 			addCompareProduct(productId);
+
+			notifySuccess("Product added to comparison");
 		}
 	};
 
 	return (
-		<Button
-			className={cn("w-8 h-8 bg-primary-500 rounded-full border-none text-white", className)}
-			onClick={handleClick}
-		>
-			{children}
-		</Button>
+		<>
+			<Button
+				className={cn(
+					"w-8 h-8 bg-primary-500 rounded-full border-none text-white",
+					className
+				)}
+				onClick={handleClick}
+			>
+				{children}
+			</Button>
+		</>
 	);
 }

@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Button from "@/components/ui/Button";
 import FormInput from "@/components/form/FormInput";
 import FormError from "@/components/form/FormError";
+import { notifySuccess } from "@/lib/utils";
 
 interface ISubscribeFormValues {
 	email: string;
@@ -13,8 +15,14 @@ export default function Subscribe() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isSubmitSuccessful },
 	} = useForm<ISubscribeFormValues>();
+
+	useEffect(() => {
+		if (isSubmitSuccessful) {
+			notifySuccess("Product added to comparison");
+		}
+	}, [isSubmitSuccessful]);
 
 	const onSubmit = (data: ISubscribeFormValues) => {
 		console.log("FORM DATA:", data);
@@ -44,7 +52,10 @@ export default function Subscribe() {
 					/>
 				)}
 			</div>
-			<Button type="submit" className="border-x-0 border-t-0 text-sm font-medium pb-0.75">
+			<Button
+				type="submit"
+				className="border-x-0 border-t-0 text-sm font-medium pb-0.75 rounded-none"
+			>
 				SUBSCRIBE
 			</Button>
 		</form>

@@ -10,27 +10,10 @@ import CompareLink from "@/components/products/compare/CompareLInk";
 import WishlistLink from "@/components/products/wishlist/WishlistLink";
 import ShoppingCartLink from "@/components/products/shoppingCart/ShoppingCartLink";
 import Search from "@/components/products/Search";
+import { menuLinks } from "@/data/menu";
 
 export default function Header() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-	const menuLinks = [
-		{
-			id: "menu-link-shop",
-			title: "Shop",
-			link: "/shop",
-		},
-		{
-			id: "menu-link-about",
-			title: "About",
-			link: "/about",
-		},
-		{
-			id: "menu-link-contact",
-			title: "Contact",
-			link: "/contact",
-		},
-	];
 
 	return (
 		<header className="py-4 lg:py-7.25 sticky top-0 z-50 bg-white">
@@ -84,10 +67,8 @@ export default function Header() {
 					/>
 
 					<div
-						className={`
-								fixed top-0 left-0 z-50 max-w-80 w-full h-full bg-white py-5 px-2
-								transition-transform duration-300
-								${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
+						className={`fixed top-0 left-0 z-50 max-w-80 w-full h-full bg-white py-5 px-2
+								transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
 							`}
 					>
 						<Menu

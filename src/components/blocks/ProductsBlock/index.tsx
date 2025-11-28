@@ -58,9 +58,9 @@ export default function ProductsBlock({
 
 	return (
 		<Tag className={className}>
-			<div className="container">
+			<div className="container space-y-4 lg:space-y-8">
 				{title && (
-					<div className="text-center mb-4 lg:mb-8">
+					<div className="text-center">
 						<h2>{title}</h2>
 					</div>
 				)}
@@ -83,7 +83,7 @@ export default function ProductsBlock({
 											className="group-hover:scale-105 transition-transform duration-300"
 										/>
 
-										<div className="absolute top-4 left-4 space-y-2">
+										<div className="absolute top-2 left-2 sm:top-4 sm:left-4 space-y-2">
 											<CompareProduct productId={product.id}>
 												<Scale size="18" />
 											</CompareProduct>
@@ -128,7 +128,7 @@ export default function ProductsBlock({
 				{displayMode === "showMore" && visibleCount < products.length && (
 					<Button
 						onClick={handleShowMore}
-						className="max-w-61.5 h-12 border border-primary text-primary-500 font-semibold mt-8 mx-auto hover:bg-primary-500 hover:text-white"
+						className="btn-primary-transparent max-w-61.5 h-12 font-semibold mx-auto"
 					>
 						Show More
 					</Button>

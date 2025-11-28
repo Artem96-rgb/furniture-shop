@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { IImage } from "@/types";
 
 interface IHomeHeroBlockProps {
-	image: IImage;
+	image: string;
 	subtitle: string;
 	title: string;
 	description: string;
@@ -23,13 +21,12 @@ export default function HomeHeroBlock({
 	link,
 }: IHomeHeroBlockProps) {
 	return (
-		<div className="relative mb-14">
-			<div>
-				<Image src={image.src} alt={image.alt} width={image.width} height={image.height} />
-			</div>
-
-			<div className="absolute bottom-30 right-14.5 bg-primary-500-25 max-w-160 w-full pt-15.5 px-10 pb-9.5">
-				<p className="text-semibold-base-neutral-700 mb-1">{subtitle}</p>
+		<div
+			className="mb-14 h-179.25 pt-5 lg:pt-38.5 px-5 lg:px-14.5 bg-cover bg-center"
+			style={{ backgroundImage: `url('${image}')` }}
+		>
+			<div className="bg-primary-200 max-w-160 w-full pt-10 lg:pt-15.5 px-5 lg:px-10 pb-9.5 ml-auto">
+				<p className="text-semibold-base-neutral-700 mb-1 tracking-widest">{subtitle}</p>
 
 				<h1 className="mb-4.5 text-primary-500 max-w-100">{title}</h1>
 
@@ -37,7 +34,10 @@ export default function HomeHeroBlock({
 					{description}
 				</p>
 
-				<Button className="btn-primary font-bold h-18.5 max-w-55.5" href={link.href}>
+				<Button
+					className="btn-primary font-bold h-14 lg:h-18.5 max-w-55.5"
+					href={link.href}
+				>
 					{link.title}
 				</Button>
 			</div>

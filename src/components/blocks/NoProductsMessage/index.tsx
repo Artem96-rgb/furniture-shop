@@ -9,12 +9,12 @@ interface INoProductsMessageProps {
 
 export default function NoProductsMessage({ title, subtitle }: INoProductsMessageProps) {
 	return (
-		<div className="text-center space-y-2 mb-2">
-			<p className="h2">{title}</p>
-			<p className="text-base md:text-lg lg:text-xl font-medium text-gray-500 leading-7.5">
+		<div className="text-center space-y-2">
+			<p className="h2 mb-4">{title}</p>
+			<p className="text-base md:text-lg lg:text-xl font-medium text-gray-500 leading-7.5 mb-8">
 				{subtitle}
 			</p>
-			<Button href="/shop" className="max-w-max btn-primary mx-auto p-2">
+			<Button href="/shop" className="max-w-max btn-primary mx-auto px-6 py-3">
 				View More
 			</Button>
 		</div>

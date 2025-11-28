@@ -2,44 +2,9 @@
 
 import Menu from "@/components/Menu";
 import Subscribe from "@/components/Subscribe";
+import { menuLinks, helpLinks } from "@/data/menu";
 
 export default function Footer() {
-	const menuLinks = [
-		{
-			id: "menu-link-one",
-			title: "Shop",
-			link: "shop",
-		},
-		{
-			id: "menu-link-two",
-			title: "About",
-			link: "about",
-		},
-		{
-			id: "menu-link-three",
-			title: "Contact",
-			link: "contact",
-		},
-	];
-
-	const helpLinks = [
-		{
-			id: "help-link-one",
-			title: "Payment Options",
-			link: "#",
-		},
-		{
-			id: "help-link-two",
-			title: "Returns",
-			link: "#",
-		},
-		{
-			id: "help-link-three",
-			title: "Privacy Policies",
-			link: "#",
-		},
-	];
-
 	return (
 		<footer className="border-t border-gray-300">
 			<div className="container">

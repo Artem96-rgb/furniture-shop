@@ -29,7 +29,7 @@ export default function Button({
 	return (
 		<Component
 			{...(href ? { href } : { type, onClick })}
-			className={cn("flex-center w-full text-base border", className)}
+			className={cn("flex-center w-full text-base border rounded-lg", className)}
 		>
 			{children}
 		</Component>

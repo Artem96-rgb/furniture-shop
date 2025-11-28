@@ -40,7 +40,7 @@ export default function ComparePage() {
 				className="mb-8.5"
 			/>
 
-			<div className="container">
+			<div className="container mb-10">
 				{compareProducts?.length > 0 ? (
 					<div className="overflow-x-auto">
 						<div className="grid grid-cols-3 lg:grid-flow-col lg:auto-cols-[310px] mb-16">

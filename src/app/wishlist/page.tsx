@@ -15,7 +15,7 @@ export default function WishlistPage() {
 	const selectedProducts = products.filter(product => wishlistProducts.includes(product.id));
 
 	return (
-		<div>
+		<div className="mb-10">
 			<HeroBlock
 				backgroundImageUrl="hero.jpg"
 				title="Wishlist"

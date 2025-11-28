@@ -5,15 +5,16 @@ import Button from "@/components/ui/Button";
 import { useState, useMemo, useRef } from "react";
 import { products } from "@/data/products";
 import { useClickOutside, useDebounce } from "@/hooks";
+import FormInput from "@/components/form/FormInput";
 
 export default function Search() {
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
 	const [query, setQuery] = useState("");
 	const containerRef = useRef<HTMLDivElement>(null);
 
-	const debouncedQuery = useDebounce(query, 200); // фильтруем каждые 200ms
+	const debouncedQuery = useDebounce(query, 200);
 
-	// Фильтрация продуктов
+	// Product filtering
 	const filteredResults = useMemo(() => {
 		if (!debouncedQuery.trim()) return [];
 
@@ -35,17 +36,16 @@ export default function Search() {
 			</Button>
 
 			{isSearchOpen && (
-				<div className="absolute w-72 px-3 py-5 bg-black text-white right-0 top-10 rounded-lg shadow-lg">
-					<input
-						type="text"
+				<div className="absolute w-72 px-3 py-5 bg-white right-0 top-10 rounded-lg shadow-lg space-y-4">
+					<FormInput
+						id="search-input"
 						value={query}
 						onChange={e => setQuery(e.target.value)}
 						placeholder="Search..."
-						className="w-full px-3 py-2 bg-gray-800 rounded-md outline-none"
+						className="px-2"
 					/>
 
-					{/* Результаты */}
-					<div className="mt-4">
+					<>
 						{filteredResults.length === 0 && query && (
 							<p className="text-gray-400 text-sm">No results found.</p>
 						)}
@@ -58,7 +58,7 @@ export default function Search() {
 								{product.title}
 							</div>
 						))}
-					</div>
+					</>
 				</div>
 			)}
 		</div>

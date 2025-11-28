@@ -56,6 +56,10 @@
 	@apply bg-transparent text-black border-black hover:bg-primary-500 hover:text-white hover:border-primary-500;
 }
 
+@utility btn-primary-transparent {
+	@apply border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
+}
+
 /* ---------- REGULAR (400) ---------- */
 @utility text-regular-14-white {
 	@apply text-sm text-white;
@@ -245,6 +249,15 @@ body {
 ::-webkit-scrollbar-thumb {
 	background: var(--color-primary-500);
 	border-radius: 6px;
+}
+
+/* Remove autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 1000px white inset;
+	box-shadow: 0 0 0 1000px white inset;
 }
 
 #product-gallery-slider .swiper-button-prev,

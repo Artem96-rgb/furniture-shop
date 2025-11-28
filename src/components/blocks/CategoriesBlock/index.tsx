@@ -6,7 +6,7 @@ interface ICategoriesBlockProps {
 	sectionTitle: string;
 	sectionDescription: string;
 	categories: {
-		id: number;
+		id: string;
 		title: string;
 		image: {
 			src: string;

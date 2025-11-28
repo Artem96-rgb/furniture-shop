@@ -1,5 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
+import { toast } from "react-toastify";
 
 /**
  * Utility function that merges Tailwind CSS classes safely.
@@ -16,9 +17,13 @@ export function cn(...inputs: (string | undefined | null | false)[]) {
 }
 
 /**
- * Format a number as currency with dots as thousand separators.
+ * Format a number as currency with dots as a thousand separators.
  * Example: 500000 -> "500.000", 7500000 -> "7.500.000"
  */
 export function formatPrice(price: number): string {
 	return price.toLocaleString("id-ID");
 }
+
+export const notifySuccess = (message: string) => {
+	toast.success(message);
+};
