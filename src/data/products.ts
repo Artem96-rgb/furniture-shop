@@ -273,7 +273,7 @@ export const products = [
 		badge: {
 			new: true,
 		},
-		category: "dining",
+		category: "bedroom",
 		sku: "SS004",
 		image: "/products/respira.jpg",
 		images: [
@@ -447,7 +447,7 @@ export const products = [
 		badge: {
 			new: true,
 		},
-		category: "dining",
+		category: "bedroom",
 		sku: "SS006",
 		image: "/products/muggo.jpg",
 		images: [

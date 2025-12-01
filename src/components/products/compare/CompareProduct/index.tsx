@@ -14,10 +14,14 @@ interface ICompareProductProps {
 }
 
 export default function CompareProduct({ productId, className }: ICompareProductProps) {
+	// Get the list of products currently added to the comparison
 	const compareProducts = useCompareStore(state => state.compareProducts);
+
+	// Functions to add or remove a product from the comparison list
 	const addCompareProduct = useCompareStore(state => state.addCompareProduct);
 	const removeCompareProduct = useCompareStore(state => state.removeCompareProduct);
 
+	// Check if the current product is already in the comparison list
 	const isAdded = compareProducts.includes(productId);
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

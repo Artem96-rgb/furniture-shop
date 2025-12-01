@@ -28,11 +28,15 @@ export default function CartPage() {
 			return { ...product, quantity: cartItem.quantity };
 		});
 
+	// Function to remove a product from the shopping cart
+	// and show a success notification
 	const handRemoveFromCart = (productId: string) => {
 		removeFromCart(productId);
 		notifySuccess("Product removed from cart");
 	};
 
+	// Calculate the total price of all products in the cart
+	// by multiplying each product's price by its quantity
 	const total = cartProducts.reduce((sum, item) => {
 		const product = products.find(p => p.id === item.id);
 		if (!product) return sum;

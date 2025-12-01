@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 interface ICategoriesBlockProps {
 	sectionTitle: string;
@@ -30,16 +31,18 @@ export default function CategoriesBlock({
 
 				<ul className="grid grid-cols-2 lg:grid-cols-3 gap-5">
 					{categories?.map(category => (
-						<li key={category.id} className="space-y-2 lg:space-y-7.5">
-							<Image
-								src={category.image.src}
-								alt={category.image.alt}
-								width="572"
-								height="720"
-								className="rounded-lg"
-							/>
+						<li key={category.id}>
+							<Link href={`/${category.id}`} className="space-y-2 lg:space-y-7.5">
+								<Image
+									src={category.image.src}
+									alt={category.image.alt}
+									width="572"
+									height="720"
+									className="rounded-lg"
+								/>
 
-							<p className="text-center h6">{category.title}</p>
+								<p className="text-center h6">{category.title}</p>
+							</Link>
 						</li>
 					))}
 				</ul>

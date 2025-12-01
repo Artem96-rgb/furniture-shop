@@ -54,7 +54,7 @@ export default function ContactInfo() {
 
 	return (
 		<div className="space-y-10 lg:px-11 max-w-98.25 w-full">
-			{contactInfo.map(item => (
+			{contactInfo?.map(item => (
 				<div key={item.id} className="flex items-start gap-5">
 					<div className="text-neutral-700 shrink-0 mt-1.25">{item.icon}</div>
 

@@ -13,8 +13,14 @@ interface IWishlistProductProps {
 }
 
 export default function WishlistProduct({ productId, className }: IWishlistProductProps) {
-	const { wishlistProducts, addWishlistProduct, removeWishlistProduct } = useWishlistStore();
+	// Get the list of products currently added to the wishlist
+	const wishlistProducts = useWishlistStore(state => state.wishlistProducts);
 
+	// Functions to add or remove a product from the wishlist list
+	const addWishlistProduct = useWishlistStore(state => state.addWishlistProduct);
+	const removeWishlistProduct = useWishlistStore(state => state.removeWishlistProduct);
+
+	// Check if the current product is already in the wishlist list
 	const isAdded = wishlistProducts.includes(productId);
 
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

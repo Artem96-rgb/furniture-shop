@@ -1,6 +1,6 @@
 export const categories = [
 	{
-		id: "category-dining",
+		id: "dining",
 		title: "Dining",
 		image: {
 			src: "/categories/dining.jpg",
@@ -8,7 +8,7 @@ export const categories = [
 		},
 	},
 	{
-		id: "category-living",
+		id: "living",
 		title: "Living",
 		image: {
 			src: "/categories/living.jpg",
