@@ -4,15 +4,16 @@ import React from "react";
 import { useCompareStore } from "@/store/compareProductsStore";
 import Button from "@/components/ui/Button";
 import { cn, notifySuccess } from "@/lib/utils";
+import clsx from "clsx";
+import { Scale } from "lucide-react";
 
 interface ICompareProductProps {
 	productId: string;
-	children: React.ReactNode;
 	className?: string;
 	href?: string;
 }
 
-export default function CompareProduct({ productId, children, className }: ICompareProductProps) {
+export default function CompareProduct({ productId, className }: ICompareProductProps) {
 	const compareProducts = useCompareStore(state => state.compareProducts);
 	const addCompareProduct = useCompareStore(state => state.addCompareProduct);
 	const removeCompareProduct = useCompareStore(state => state.removeCompareProduct);
@@ -42,7 +43,7 @@ export default function CompareProduct({ productId, children, className }: IComp
 				)}
 				onClick={handleClick}
 			>
-				{children}
+				<Scale size="18" className={clsx(isAdded && "text-white fill-white")} />
 			</Button>
 		</>
 	);

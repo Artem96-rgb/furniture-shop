@@ -7,6 +7,8 @@ import FormInput from "@/components/form/FormInput";
 import FormTextArea from "@/components/form/FormTextArea";
 import Button from "@/components/ui/Button";
 import FormSelect from "@/components/form/FormSelect";
+import { useEffect } from "react";
+import { notifySuccess } from "@/lib/utils";
 
 interface IBillingFormValues {
 	firstName: string;
@@ -33,18 +35,19 @@ const provinces = [
 	{ label: "Eastern Province", value: "eastern-province" },
 ];
 
-// const paymentMethods = [
-// 	{ label: "Direct Bank Transfer", value: "western-province" },
-// 	{ label: "Cash On Delivery", value: "eastern-province" },
-// ];
-
 export default function BillingForm() {
 	const {
 		register,
 		control,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isSubmitSuccessful },
 	} = useForm<IBillingFormValues>();
+
+	useEffect(() => {
+		if (isSubmitSuccessful) {
+			notifySuccess("Form Sent");
+		}
+	}, [isSubmitSuccessful]);
 
 	const onSubmit = (data: IBillingFormValues) => {
 		console.log("FORM DATA:", data);

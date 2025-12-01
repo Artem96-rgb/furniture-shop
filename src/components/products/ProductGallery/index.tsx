@@ -10,7 +10,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
-import { Heart, Scale } from "lucide-react";
 import CompareProduct from "../compare/CompareProduct";
 import WishlistProduct from "../wishlist/WishlistProduct";
 
@@ -48,13 +47,9 @@ export default function ProductGallery({ images, className, productId }: IProduc
 				))}
 
 				<div className="absolute top-5 right-5 space-y-2 z-10">
-					<CompareProduct productId={productId}>
-						<Scale size="18" />
-					</CompareProduct>
+					<CompareProduct productId={productId} />
 
-					<WishlistProduct productId={productId}>
-						<Heart size="18" />
-					</WishlistProduct>
+					<WishlistProduct productId={productId} />
 				</div>
 			</Swiper>
 

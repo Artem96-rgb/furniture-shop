@@ -25,7 +25,7 @@ export default function ContactPage() {
 					</p>
 				</div>
 
-				<div className="max-w-264 px-13 mx-auto grid grid-cols-1 lg:grid-cols-[212px_530px] justify-between gap-x-2.5 gap-y-5 mb-16">
+				<div className="max-w-264 mx-auto flex max-lg:flex-col justify-between gap-x-7 gap-y-5 mb-16">
 					<ContactInfo />
 					<ContactForm />
 				</div>

@@ -20,7 +20,7 @@ export default function FormInput({
 			{...(register ? register : {})}
 			{...rest}
 			className={cn(
-				"w-full border border-gray-500 rounded-lg h-13 px-8 text-base placeholder:text-gray-500 focus:outline-0 block",
+				"w-full border border-gray-500 rounded-lg h-13 px-8 text-base placeholder:text-gray-500 block",
 				className
 			)}
 		/>

@@ -122,9 +122,7 @@ export default function ProductPage() {
 								<ShoppingCartAction
 									className="max-w-54 h-14 rounded-md px-2 btn-transparent text-xl"
 									productId={productId}
-								>
-									Add To Cart
-								</ShoppingCartAction>
+								/>
 							</div>
 
 							<hr className="text-gray-300 mb-8 lg:mb-10.5" />

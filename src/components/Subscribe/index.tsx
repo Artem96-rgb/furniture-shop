@@ -20,7 +20,7 @@ export default function Subscribe() {
 
 	useEffect(() => {
 		if (isSubmitSuccessful) {
-			notifySuccess("Product added to comparison");
+			notifySuccess("You successfully subscribed");
 		}
 	}, [isSubmitSuccessful]);
 

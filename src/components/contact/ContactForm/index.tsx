@@ -6,6 +6,8 @@ import FormError from "@/components/form/FormError";
 import FormInput from "@/components/form/FormInput";
 import FormTextArea from "@/components/form/FormTextArea";
 import Button from "@/components/ui/Button";
+import { useEffect } from "react";
+import { notifySuccess } from "@/lib/utils";
 
 interface IFormValues {
 	name: string;
@@ -18,15 +20,21 @@ export default function ContactForm() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isSubmitSuccessful },
 	} = useForm<IFormValues>();
+
+	useEffect(() => {
+		if (isSubmitSuccessful) {
+			notifySuccess("Form Sent");
+		}
+	}, [isSubmitSuccessful]);
 
 	const onSubmit = (data: IFormValues) => {
 		console.log("FORM DATA:", data);
 	};
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className="space-y-9">
+		<form onSubmit={handleSubmit(onSubmit)} className="space-y-9 lg:px-13 max-w-158.75 w-full">
 			{/* Name */}
 			<div>
 				<FormLabel label="Your name" required htmlFor="name" />

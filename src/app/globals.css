@@ -221,11 +221,15 @@
 	}
 
 	button {
-		@apply cursor-pointer transition-ease-in-out;
+		@apply cursor-pointer transition-ease-in-out focus:outline-0;
 	}
 
 	a {
 		@apply inline transition-ease-in-out;
+	}
+
+	input,textarea {
+		@apply focus:outline-0;
 	}
 }
 

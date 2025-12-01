@@ -12,6 +12,7 @@ import React from "react";
 import NoProductsMessage from "@/components/blocks/NoProductsMessage";
 import { features } from "@/data/features";
 import FeaturesBlock from "@/components/blocks/FeaturesBlock";
+import { notifySuccess } from "@/lib/utils";
 
 export default function CartPage() {
 	// Get the array of selected product IDs from the Zustand store
@@ -29,6 +30,7 @@ export default function CartPage() {
 
 	const handRemoveFromCart = (productId: string) => {
 		removeFromCart(productId);
+		notifySuccess("Product removed from cart");
 	};
 
 	const total = cartProducts.reduce((sum, item) => {

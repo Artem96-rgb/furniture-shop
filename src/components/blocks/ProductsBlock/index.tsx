@@ -3,7 +3,6 @@
 import React, { useState, useRef } from "react";
 import ProductBadge from "@/components/ui/ProductBadge";
 import CompareProduct from "@/components/products/compare/CompareProduct";
-import { Scale, Heart } from "lucide-react";
 import ProductImage from "@/components/ui/ProductImage";
 import { IProduct } from "@/types";
 import WishlistProduct from "@/components/products/wishlist/WishlistProduct";
@@ -84,13 +83,9 @@ export default function ProductsBlock({
 										/>
 
 										<div className="absolute top-2 left-2 sm:top-4 sm:left-4 space-y-2">
-											<CompareProduct productId={product.id}>
-												<Scale size="18" />
-											</CompareProduct>
+											<CompareProduct productId={product.id} />
 
-											<WishlistProduct productId={product.id}>
-												<Heart size="18" />
-											</WishlistProduct>
+											<WishlistProduct productId={product.id} />
 										</div>
 
 										{product.badge && <ProductBadge badge={product.badge} />}
