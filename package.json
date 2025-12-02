@@ -9,7 +9,9 @@
     "lint": "eslint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+	  "lint:css": "stylelint 'src/app/**/*.{css,scss}'",
+	  "lint:css:fix": "stylelint 'src/app/**/*.{css,scss}' --fix"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -32,6 +34,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.5",
     "prettier": "^3.6.2",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

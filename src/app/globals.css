@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import url("tailwindcss");
 
 :root {
-	--background: #ffffff;
+	--background: #fff;
 	--foreground: #171717;
 }
 
@@ -9,12 +9,10 @@
 	--color-primary-100: #faf3ea;
 	--color-primary-200: #fff3e3;
 	--color-primary-500: #b88e2f;
-
-	--color-black: #000000;
+	--color-black: #000;
 	--color-neutral-600: #3a3a3a;
-	--color-neutral-700: #333333;
+	--color-neutral-700: #333;
 	--color-neutral-800: #242424;
-
 	--color-gray-100: #faf3ea;
 	--color-gray-200: #f4f5f7;
 	--color-gray-300: #d9d9d9;
@@ -22,12 +20,10 @@
 	--color-gray-500: #9f9f9f;
 	--color-gray-600: #898989;
 	--color-gray-700: #727272;
-	--color-gray-800: #666666;
+	--color-gray-800: #666;
 	--color-gray-900: #616161;
-
 	--color-accent-red: #e97171;
 	--color-accent-green: #2ec1ac;
-
 	--color-light: #f4f5f7;
 	--color-light-secondary: #f9f1e7;
 }
@@ -137,9 +133,11 @@
 @utility text-medium-xl-gray-600 {
 	@apply text-xl font-medium text-gray-600;
 }
+
 @utility text-medium-xl-gray-700 {
 	@apply text-xl font-medium text-gray-700;
 }
+
 @utility text-medium-xl-primary {
 	@apply text-xl font-medium text-primary-500;
 }
@@ -147,6 +145,7 @@
 @utility text-medium-2xl-gray-500 {
 	@apply text-2xl font-medium text-gray-500;
 }
+
 @utility text-medium-2xl-black {
 	@apply text-2xl font-medium text-black;
 }
@@ -220,8 +219,7 @@
 		@apply text-xl lg:text-2xl font-semibold;
 	}
 
-	button {
-		@apply cursor-pointer transition-ease-in-out focus:outline-0;
+	button {@apply cursor-pointer transition-ease-in-out focus:outline-0;
 	}
 
 	a {
@@ -260,7 +258,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	-webkit-box-shadow: 0 0 0 1000px white inset;
 	box-shadow: 0 0 0 1000px white inset;
 }
 
