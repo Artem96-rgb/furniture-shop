@@ -3,9 +3,7 @@ import { categories } from "@/data/categories";
 import { products } from "@/data/products";
 
 const SITE_URL =
-	process.env.NODE_ENV === "development"
-		? process.env.NEXT_PUBLIC_SITE_LOCAL_URL
-		: process.env.NEXT_PUBLIC_SITE_URL;
+	process.env.NODE_ENV === "development" ? process.env.SITE_LOCAL_URL : process.env.SITE_URL;
 
 if (!SITE_URL) {
 	throw new Error("SITE_URL is not defined in environment variables!");
