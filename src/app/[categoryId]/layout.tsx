@@ -2,8 +2,13 @@ import { ReactNode } from "react";
 import { Metadata } from "next";
 import { categories } from "@/data/categories";
 
-export function generateMetadata({ params }: { params: { categoryId: string } }): Metadata {
-	const category = categories.find(c => c.id === params.categoryId);
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ categoryId: string }>;
+}): Promise<Metadata> {
+	const { categoryId } = await params;
+	const category = categories.find(c => c.id === categoryId);
 
 	if (!category) {
 		return {

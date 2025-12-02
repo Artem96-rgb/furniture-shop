@@ -2,8 +2,13 @@ import { ReactNode } from "react";
 import { Metadata } from "next";
 import { products } from "@/data/products";
 
-export function generateMetadata({ params }: { params: { productId: string } }): Metadata {
-	const product = products.find(product => product.id === params.productId);
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ productId: string }>;
+}): Promise<Metadata> {
+	const { productId } = await params;
+	const product = products.find(product => product.id === productId);
 
 	if (!product) {
 		return {

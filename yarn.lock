@@ -3200,6 +3200,11 @@ stylelint-config-standard@^39.0.1:
   dependencies:
     stylelint-config-recommended "^17.0.0"
 
+stylelint-config-tailwindcss@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-tailwindcss/-/stylelint-config-tailwindcss-1.0.0.tgz#de28230686abab80c457c571de4f64c7bb398af2"
+  integrity sha512-e6WUBJeLdOZ0sy8FZ1jk5Zy9iNGqqJbrMwnnV0Hpaw/yin6QO3gVv/zvyqSty8Yg6nEB5gqcyJbN387TPhEa7Q==
+
 stylelint@^16.26.1:
   version "16.26.1"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-16.26.1.tgz#7048accf9c3990dc074dff13c6f3cdc35c780c95"
