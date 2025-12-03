@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/blocks/Breadcrumbs";
 // import Button from "@/components/ui/Button";
 import ShoppingCartAction from "@/components/products/shoppingCart/ShoppingCartAction";
 import ProductPrice from "@/components/products/ProductPrice";
-import Section from "@/layuouts/Section";
+import Section from "@/layouts/Section";
 
 export default function ProductPage() {
 	// get the parameter from the URL
@@ -80,23 +80,6 @@ export default function ProductPage() {
 							<div className="mb-5.5">
 								<p className="text-sm">{product.shortDescription}</p>
 							</div>
-
-							{/*{product.attributes?.sizes && product.attributes.sizes.length > 0 && (*/}
-							{/*	<div className="mb-4.5">*/}
-							{/*		<p className="text-regular-14-gray-500 mb-3">Size</p>*/}
-
-							{/*		<div className="flex-y-center flex-wrap gap-5">*/}
-							{/*			{product.attributes.sizes.map(size => (*/}
-							{/*				<Button*/}
-							{/*					key={size.id}*/}
-							{/*					className="w-7.5 h-7.5 rounded-md btn-primary"*/}
-							{/*				>*/}
-							{/*					{size.title}*/}
-							{/*				</Button>*/}
-							{/*			))}*/}
-							{/*		</div>*/}
-							{/*	</div>*/}
-							{/*)}*/}
 
 							{/*{product.attributes?.colors && (*/}
 							{/*	<div className="mb-8">*/}

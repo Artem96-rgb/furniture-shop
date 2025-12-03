@@ -6,9 +6,9 @@ import React, { useState, useMemo, useRef } from "react";
 import { products } from "@/data/products";
 import { useClickOutside, useDebounce } from "@/hooks";
 import FormInput from "@/components/form/FormInput";
-import Image from "next/image";
 import ProductPrice from "@/components/products/ProductPrice";
 import Link from "next/link";
+import ProductImageThumbnail from "@/components/ui/product/ProductImageThumbnail";
 
 export default function Search() {
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -59,13 +59,7 @@ export default function Search() {
 								key={product.id}
 								className="py-4 border-b border-gray-300 last:border-none cursor-pointer hover:text-accent flex gap-2"
 							>
-								<Image
-									src={product.image}
-									alt={product.title}
-									width={100}
-									height={106}
-									className="rounded-lg"
-								/>
+								<ProductImageThumbnail src={product.image} alt={product.title} />
 
 								<div>
 									<p className="h6">{product.title}</p>

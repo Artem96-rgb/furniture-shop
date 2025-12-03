@@ -3,7 +3,6 @@
 import HeroBlock from "@/components/blocks/HeroBlock";
 import { products } from "@/data/products";
 import { useShoppingCartStore } from "@/store/shoppingCartStore";
-import Image from "next/image";
 import ProductPrice from "@/components/products/ProductPrice";
 import QuantityCounter from "@/components/products/QuantityCounter";
 import { Trash } from "lucide-react";
@@ -13,6 +12,7 @@ import NoProductsMessage from "@/components/blocks/NoProductsMessage";
 import { features } from "@/data/features";
 import FeaturesBlock from "@/components/blocks/FeaturesBlock";
 import { notifySuccess } from "@/lib/utils";
+import ProductImageThumbnail from "@/components/ui/product/ProductImageThumbnail";
 
 export default function CartPage() {
 	// Get the array of selected product IDs from the Zustand store
@@ -63,17 +63,13 @@ export default function CartPage() {
 										className="grid lg:grid-cols-[1fr_124px_150px_32px] max-lg:grid-cols-3 max-lg:grid-rows-2 gap-8 items-center"
 									>
 										<div className="flex-y-center gap-2 max-lg:row-start-1 max-lg:row-end-2 max-lg:col-start-1 max-lg:col-end-4">
-											<Image
-												src={selectedProduct?.image}
-												alt={selectedProduct?.title}
-												width="108"
-												height="114"
+											<ProductImageThumbnail
+												src={selectedProduct.image}
+												alt={selectedProduct.title}
 											/>
 
 											<div>
-												<p className="text-base">
-													{selectedProduct?.title}
-												</p>
+												<p className="h6">{selectedProduct?.title}</p>
 
 												<div className="">
 													{selectedProduct.oldPrice && (

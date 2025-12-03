@@ -15,21 +15,3 @@ export const menuLinks = [
 		link: "/contact",
 	},
 ];
-
-export const helpLinks = [
-	{
-		id: "help-link-one",
-		title: "Payment Options",
-		link: "#",
-	},
-	{
-		id: "help-link-two",
-		title: "Returns",
-		link: "#",
-	},
-	{
-		id: "help-link-three",
-		title: "Privacy Policies",
-		link: "#",
-	},
-];

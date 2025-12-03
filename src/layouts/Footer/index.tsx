@@ -1,15 +1,13 @@
 "use client";
 
-import Menu from "@/components/Menu";
 import Subscribe from "@/components/Subscribe";
-import { menuLinks, helpLinks } from "@/data/menu";
 
 export default function Footer() {
 	return (
 		<footer className="border-t border-gray-300">
 			<div className="container">
-				<div className="flex max-lg:flex-col py-8 lg:py-12 gap-10 lg:gap-18">
-					<div className="order-1 lg:max-w-67.5">
+				<div className="flex justify-between max-lg:flex-col py-8 lg:py-12 gap-10 lg:gap-18">
+					<div className="lg:max-w-67.5">
 						<p className="h6 mb-5 lg:mb-15.5 leading-none">Funiro.</p>
 						<p className="text-regular-16-gray-500">
 							400 University Drive Suite 200 Coral Gables,
@@ -18,19 +16,7 @@ export default function Footer() {
 						</p>
 					</div>
 
-					<div className="order-3 lg:order-2 flex justify-between xl:ml-16 gap-20 xl:gap-36">
-						<div>
-							<p className="text-medium-base-gray-500 mb-5 lg:mb-15.5">Links</p>
-							<Menu links={menuLinks} className="space-y-5 lg:space-y-11.5" />
-						</div>
-
-						<div>
-							<p className="text-medium-base-gray-500 mb-5 lg:mb-15.5">Help</p>
-							<Menu links={helpLinks} className="space-y-5 lg:space-y-11.5" />
-						</div>
-					</div>
-
-					<div className="order-2 lg:order-3">
+					<div>
 						<p className="text-medium-base-gray-500 mb-5 lg:mb-15.5">Newsletter</p>
 
 						<Subscribe />

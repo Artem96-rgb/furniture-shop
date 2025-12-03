@@ -3,7 +3,7 @@
 import HomeHeroBlock from "@/components/blocks/HomeHeroBlock";
 import CategoriesBlock from "@/components/blocks/CategoriesBlock";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
-import Section from "@/layuouts/Section";
+import Section from "@/layouts/Section";
 import { products } from "@/data/products";
 import { categories } from "@/data/categories";
 
