@@ -3,6 +3,7 @@
 import HomeHeroBlock from "@/components/blocks/HomeHeroBlock";
 import CategoriesBlock from "@/components/blocks/CategoriesBlock";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
+import Section from "@/layuouts/Section";
 import { products } from "@/data/products";
 import { categories } from "@/data/categories";
 
@@ -27,12 +28,9 @@ export default function Home() {
 				categories={categories}
 			/>
 
-			<ProductsBlock
-				title="Our Products"
-				products={products}
-				displayMode="showMore"
-				className="mb-15.5"
-			/>
+			<Section title="Our Products" className="mb-15.5">
+				<ProductsBlock title="Our Products" products={products} displayMode="showMore" />
+			</Section>
 		</>
 	);
 }

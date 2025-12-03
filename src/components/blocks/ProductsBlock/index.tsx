@@ -10,26 +10,22 @@ import Button from "@/components/ui/Button";
 import Pagination from "@/components/Pagination";
 import Link from "next/link";
 import ProductPrice from "@/components/products/ProductPrice";
+import { cn } from "@/lib/utils";
 
 interface IProductsBlockProps {
 	products: IProduct[];
 	title?: string;
 	displayMode?: "showMore" | "pagination" | "none";
 	productCount?: number;
-	className?: string;
+	listClassName?: string;
 }
 
 export default function ProductsBlock({
 	products,
-	title,
 	displayMode = "none",
 	productCount = 8,
-	className,
+	listClassName,
 }: IProductsBlockProps) {
-	// Use a dynamic HTML tag based on whether the title exists.
-	// If there is a title, render a <section>; otherwise, render a <div>.
-	const Tag = title ? "section" : "div";
-
 	// Number of products to show initially (for "Show More" mode)
 	const [visibleCount, setVisibleCount] = useState(productCount);
 
@@ -56,92 +52,89 @@ export default function ProductsBlock({
 	const productsRef = useRef<HTMLDivElement | null>(null);
 
 	return (
-		<Tag className={className}>
-			<div className="container space-y-4 lg:space-y-8">
-				{title && (
-					<div className="text-center">
-						<h2>{title}</h2>
-					</div>
-				)}
-
-				<div ref={productsRef}>
-					<ul className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
-						{visibleProducts?.map(product => {
-							return (
-								<li
-									key={product.id}
-									className="relative group cursor-pointer flex flex-col"
+		<>
+			<div ref={productsRef}>
+				<ul
+					className={cn(
+						"mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8",
+						listClassName
+					)}
+				>
+					{visibleProducts?.map(product => {
+						return (
+							<li
+								key={product.id}
+								className="relative group cursor-pointer flex flex-col"
+							>
+								<Link
+									href={`/shop/${product.id}`}
+									className="overflow-hidden block relative"
 								>
-									<Link
-										href={`/shop/${product.id}`}
-										className="overflow-hidden block relative"
-									>
-										<ProductImage
-											src={product.image}
-											alt={product.title}
-											className="group-hover:scale-105 transition-transform duration-300"
+									<ProductImage
+										src={product.image}
+										alt={product.title}
+										className="group-hover:scale-105 transition-transform duration-300"
+									/>
+
+									<div className="absolute top-2 left-2 sm:top-4 sm:left-4 space-y-2">
+										<CompareProduct productId={product.id} />
+
+										<WishlistProduct productId={product.id} />
+									</div>
+
+									{product.badge && <ProductBadge badge={product.badge} />}
+								</Link>
+
+								{/* Text content */}
+								<div className="bg-light pt-4 px-4 pb-7.5 grow">
+									<p className="h6 mb-1.5 line-clamp-2">{product.title}</p>
+
+									<p className="text-medium-base-gray-600 mb-2 line-clamp-2">
+										{product.subtitle}
+									</p>
+
+									<div className="flex-y-center gap-4 flex-wrap">
+										<ProductPrice
+											price={product.price}
+											className="text-semibold-xl-neutral-600"
 										/>
 
-										<div className="absolute top-2 left-2 sm:top-4 sm:left-4 space-y-2">
-											<CompareProduct productId={product.id} />
-
-											<WishlistProduct productId={product.id} />
-										</div>
-
-										{product.badge && <ProductBadge badge={product.badge} />}
-									</Link>
-
-									{/* Text content */}
-									<div className="bg-light pt-4 px-4 pb-7.5 grow">
-										<p className="h6 mb-1.5 line-clamp-2">{product.title}</p>
-
-										<p className="text-medium-base-gray-600 mb-2 line-clamp-2">
-											{product.subtitle}
-										</p>
-
-										<div className="flex-y-center gap-4 flex-wrap">
+										{product.oldPrice && (
 											<ProductPrice
-												price={product.price}
-												className="text-semibold-xl-neutral-600"
+												price={product.oldPrice}
+												oldPrice
+												className="text-regular-16-gray-400"
 											/>
-
-											{product.oldPrice && (
-												<ProductPrice
-													price={product.oldPrice}
-													oldPrice
-													className="text-regular-16-gray-400"
-												/>
-											)}
-										</div>
+										)}
 									</div>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
-
-				{displayMode === "showMore" && visibleCount < products.length && (
-					<Button
-						onClick={handleShowMore}
-						className="btn-primary-transparent max-w-61.5 h-12 font-semibold mx-auto"
-					>
-						Show More
-					</Button>
-				)}
-
-				{/* Pagination Mode */}
-				{displayMode === "pagination" && (
-					<Pagination
-						totalPages={totalPages}
-						currentPage={currentPage}
-						// onPageChange={setCurrentPage}
-						onPageChange={page => {
-							setCurrentPage(page);
-							productsRef.current?.scrollIntoView({ behavior: "smooth" });
-						}}
-					/>
-				)}
+								</div>
+							</li>
+						);
+					})}
+				</ul>
 			</div>
-		</Tag>
+
+			{displayMode === "showMore" && visibleCount < products.length && (
+				<Button
+					onClick={handleShowMore}
+					className="btn-primary-transparent max-w-61.5 h-12 font-semibold mx-auto"
+				>
+					Show More
+				</Button>
+			)}
+
+			{/* Pagination Mode */}
+			{displayMode === "pagination" && (
+				<Pagination
+					totalPages={totalPages}
+					currentPage={currentPage}
+					// onPageChange={setCurrentPage}
+					onPageChange={page => {
+						setCurrentPage(page);
+						productsRef.current?.scrollIntoView({ behavior: "smooth" });
+					}}
+				/>
+			)}
+		</>
 	);
 }

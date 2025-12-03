@@ -4,14 +4,6 @@ import Link from "next/link";
 import { ReactNode, ElementType, ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-// interface IButtonProps {
-// 	children: ReactNode;
-// 	type?: "button" | "submit" | "reset";
-// 	href?: string;
-// 	className?: string;
-// 	onClick?: () => void;
-// }
-
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	children: ReactNode;
 	href?: string;

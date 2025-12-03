@@ -2,10 +2,13 @@
 
 import { Search as SearchIcon } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { products } from "@/data/products";
 import { useClickOutside, useDebounce } from "@/hooks";
 import FormInput from "@/components/form/FormInput";
+import Image from "next/image";
+import ProductPrice from "@/components/products/ProductPrice";
+import Link from "next/link";
 
 export default function Search() {
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -36,7 +39,7 @@ export default function Search() {
 			</Button>
 
 			{isSearchOpen && (
-				<div className="absolute w-72 px-3 py-5 bg-white right-0 top-10 rounded-lg shadow-lg space-y-4">
+				<div className="absolute w-72 px-3 py-5 bg-white -right-48 sm:right-0 top-10 rounded-lg shadow-lg">
 					<FormInput
 						id="search-input"
 						value={query}
@@ -45,20 +48,47 @@ export default function Search() {
 						className="px-2"
 					/>
 
-					<>
+					<div className="overflow-auto max-h-[500px]">
 						{filteredResults.length === 0 && query && (
-							<p className="text-gray-400 text-sm">No results found.</p>
+							<p className="text-lg mt-2">No results found.</p>
 						)}
 
 						{filteredResults?.map(product => (
-							<div
+							<Link
+								href={`/shop/${product.id}`}
 								key={product.id}
-								className="py-2 border-b border-gray-700 last:border-none cursor-pointer hover:text-accent"
+								className="py-4 border-b border-gray-300 last:border-none cursor-pointer hover:text-accent flex gap-2"
 							>
-								{product.title}
-							</div>
+								<Image
+									src={product.image}
+									alt={product.title}
+									width={100}
+									height={106}
+									className="rounded-lg"
+								/>
+
+								<div>
+									<p className="h6">{product.title}</p>
+
+									<div className="flex flex-col flex-wrap">
+										<ProductPrice
+											price={product.price}
+											// className="text-semibold-xl-neutral-600"
+											className="text-lg font-semibold"
+										/>
+
+										{product.oldPrice && (
+											<ProductPrice
+												price={product.oldPrice}
+												oldPrice
+												className="text-regular-16-gray-400"
+											/>
+										)}
+									</div>
+								</div>
+							</Link>
 						))}
-					</>
+					</div>
 				</div>
 			)}
 		</div>

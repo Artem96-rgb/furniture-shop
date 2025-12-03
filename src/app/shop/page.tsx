@@ -16,11 +16,9 @@ export default function ShopPage() {
 				className="mb-8.5"
 			/>
 
-			<ProductsBlock
-				products={products}
-				displayMode="pagination"
-				className="mb-10 lg:mb-21.5"
-			/>
+			<div className="container mb-10 lg:mb-21.5">
+				<ProductsBlock products={products} displayMode="pagination" />
+			</div>
 
 			<FeaturesBlock features={features} />
 		</>

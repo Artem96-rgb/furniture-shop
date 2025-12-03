@@ -23,14 +23,16 @@ export default function WishlistPage() {
 				className="mb-8.5"
 			/>
 
-			{wishlistProducts?.length > 0 ? (
-				<ProductsBlock products={selectedProducts} />
-			) : (
-				<NoProductsMessage
-					title="Your wishlist is empty"
-					subtitle="To add products to your wishlist, click the heart icon on the products you like."
-				/>
-			)}
+			<div className="container">
+				{wishlistProducts?.length > 0 ? (
+					<ProductsBlock products={selectedProducts} />
+				) : (
+					<NoProductsMessage
+						title="Your wishlist is empty"
+						subtitle="To add products to your wishlist, click the heart icon on the products you like."
+					/>
+				)}
+			</div>
 		</div>
 	);
 }

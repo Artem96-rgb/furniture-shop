@@ -31,6 +31,7 @@ export default function ProductGallery({ images, className, productId }: IProduc
 				thumbs={{ swiper: thumbsSwiper }}
 				modules={[FreeMode, Navigation, Thumbs]}
 				id="product-gallery-slider"
+				className="rounded-xl"
 			>
 				{images.map(img => (
 					<SwiperSlide key={img}>

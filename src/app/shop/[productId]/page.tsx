@@ -6,10 +6,10 @@ import ProductGallery from "@/components/products/ProductGallery";
 import Image from "next/image";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
 import Breadcrumbs from "@/components/blocks/Breadcrumbs";
-import Button from "@/components/ui/Button";
+// import Button from "@/components/ui/Button";
 import ShoppingCartAction from "@/components/products/shoppingCart/ShoppingCartAction";
 import ProductPrice from "@/components/products/ProductPrice";
-import React from "react";
+import Section from "@/layuouts/Section";
 
 export default function ProductPage() {
 	// get the parameter from the URL
@@ -81,42 +81,42 @@ export default function ProductPage() {
 								<p className="text-sm">{product.shortDescription}</p>
 							</div>
 
-							{product.attributes?.sizes && product.attributes.sizes.length > 0 && (
-								<div className="mb-4.5">
-									<p className="text-regular-14-gray-500 mb-3">Size</p>
+							{/*{product.attributes?.sizes && product.attributes.sizes.length > 0 && (*/}
+							{/*	<div className="mb-4.5">*/}
+							{/*		<p className="text-regular-14-gray-500 mb-3">Size</p>*/}
 
-									<div className="flex-y-center flex-wrap gap-5">
-										{product.attributes.sizes.map(size => (
-											<Button
-												key={size.id}
-												className="w-7.5 h-7.5 rounded-md btn-primary"
-											>
-												{size.title}
-											</Button>
-										))}
-									</div>
-								</div>
-							)}
+							{/*		<div className="flex-y-center flex-wrap gap-5">*/}
+							{/*			{product.attributes.sizes.map(size => (*/}
+							{/*				<Button*/}
+							{/*					key={size.id}*/}
+							{/*					className="w-7.5 h-7.5 rounded-md btn-primary"*/}
+							{/*				>*/}
+							{/*					{size.title}*/}
+							{/*				</Button>*/}
+							{/*			))}*/}
+							{/*		</div>*/}
+							{/*	</div>*/}
+							{/*)}*/}
 
-							{product.attributes?.colors && (
-								<div className="mb-8">
-									<p className="text-regular-14-gray-500 mb-3">Color</p>
+							{/*{product.attributes?.colors && (*/}
+							{/*	<div className="mb-8">*/}
+							{/*		<p className="text-regular-14-gray-500 mb-3">Color</p>*/}
 
-									<div className="flex-y-center flex-wrap gap-5">
-										{product.attributes.colors.map(color => (
-											<Button
-												key={color.id}
-												className="w-7.5 h-7.5 rounded-full border-none"
-											>
-												<span
-													style={{ backgroundColor: color.title }}
-													className="block w-full h-full rounded-full"
-												></span>
-											</Button>
-										))}
-									</div>
-								</div>
-							)}
+							{/*		<div className="flex-y-center flex-wrap gap-5">*/}
+							{/*			{product.attributes.colors.map(color => (*/}
+							{/*				<Button*/}
+							{/*					key={color.id}*/}
+							{/*					className="w-7.5 h-7.5 rounded-full border-none"*/}
+							{/*				>*/}
+							{/*					<span*/}
+							{/*						style={{ backgroundColor: color.title }}*/}
+							{/*						className="block w-full h-full rounded-full"*/}
+							{/*					></span>*/}
+							{/*				</Button>*/}
+							{/*			))}*/}
+							{/*		</div>*/}
+							{/*	</div>*/}
+							{/*)}*/}
 
 							<div className="flex gap-2.5 flex-wrap mb-7.5 lg:mb-15">
 								<ShoppingCartAction
@@ -166,12 +166,13 @@ export default function ProductPage() {
 						<>
 							<hr className="text-gray-300 mt-10.5 mb-8 lg:mt-16.5 lg:mb-14" />
 
-							<ProductsBlock
-								title="Related Products"
-								products={relatedProducts}
-								displayMode="showMore"
-								productCount={4}
-							/>
+							<Section title="Related Products">
+								<ProductsBlock
+									products={relatedProducts}
+									displayMode="showMore"
+									productCount={4}
+								/>
+							</Section>
 						</>
 					)}
 				</>

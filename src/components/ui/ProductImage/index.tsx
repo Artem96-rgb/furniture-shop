@@ -14,8 +14,8 @@ export default function ProductImage({ src, alt, className }: IProductImageProps
 		<Image
 			src={src}
 			alt={alt}
-			width="285"
-			height="301"
+			width={570}
+			height={602}
 			className={clsx("w-full w-full object-cover", className)}
 		/>
 	);
