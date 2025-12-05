@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Furniro – Non-commercial Furniture Shop
 
-## Getting Started
+Furniro is a modern, non-commercial furniture shop web application built with React and Next.js. It demonstrates interactive UI components, responsive design, and form handling with real-time validation.
 
-First, run the development server:
+## Features
+	•	Product catalog with categories and filtering
+	•	Interactive UI components and sliders
+	•	Forms with validation using Zod and React Hook Form
+	•	Toast notifications for user interactions
+	•   Responsive layout with Tailwind CSS
+	•	State management with Zustand
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies & Tools
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frameworks & Libraries
+	•	Next.js￼ – React framework for server-side rendering and routing
+	•	React￼ – Front-end library for building UI
+	•	React Hook Form￼ – Forms handling and validation
+	•	Zod￼ – Schema validation
+	•	Zustand￼ – State management
+	•	Swiper￼ – Responsive sliders
+	•	Lucide React￼ – Icons
+	•	React Toastify￼ – Toast notifications
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Styling & UI:
+	•	Tailwind CSS￼ – Utility-first CSS framework
+	•	Tailwind Merge (tailwind-merge) – Merge Tailwind class names safely
+	•	Stylelint – Linting for CSS/SCSS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Development Tools
+	•	TypeScript – Type-safe development
+	•	ESLint – JavaScript/TypeScript linting
+	•	Prettier – Code formatting
 
-## Learn More
+## Quick Start
 
-To learn more about Next.js, take a look at the following resources:
+	# Install dependencies
+    yarn install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    # Run dev server
+    yarn dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    # Build for production
+    yarn build
 
-## Deploy on Vercel
+    # Start production server
+    yarn start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Local Demo
+    http://localhost:3000/
+	
+## Live Demo
+    https://github.com/Artem96-rgb/furniture-shop
