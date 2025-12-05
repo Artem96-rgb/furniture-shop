@@ -9,20 +9,8 @@ import Button from "@/components/ui/Button";
 import FormSelect from "@/components/form/FormSelect";
 import { useEffect } from "react";
 import { notifySuccess } from "@/lib/utils";
-
-interface IBillingFormValues {
-	firstName: string;
-	lastName: string;
-	companyName: string;
-	country: string;
-	streetAddress: string;
-	city: string;
-	province: string;
-	zipCode: string;
-	phone: string;
-	email: string;
-	additionalInformation: string;
-}
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormSchema, FormSchemaType } from "@/lib/zod/schema";
 
 const countries = [
 	{ label: "France", value: "france" },
@@ -41,7 +29,12 @@ export default function BillingForm() {
 		control,
 		handleSubmit,
 		formState: { errors, isSubmitSuccessful },
-	} = useForm<IBillingFormValues>();
+	} = useForm<FormSchemaType>({
+		defaultValues: {
+			country: "",
+		},
+		resolver: zodResolver(FormSchema),
+	});
 
 	useEffect(() => {
 		if (isSubmitSuccessful) {
@@ -49,7 +42,7 @@ export default function BillingForm() {
 		}
 	}, [isSubmitSuccessful]);
 
-	const onSubmit = (data: IBillingFormValues) => {
+	const onSubmit = (data: FormSchemaType) => {
 		console.log("FORM DATA:", data);
 	};
 
@@ -60,19 +53,15 @@ export default function BillingForm() {
 				<FormInput
 					id="firstName"
 					placeholder="Your name"
-					register={register("firstName", { required: true })}
+					register={register("firstName")}
 				/>
-				{errors.firstName && <FormError message="Please enter your name" />}
+				{errors.firstName?.message && <FormError message={errors.firstName.message} />}
 			</div>
 
 			<div className="col-span-2 md:col-span-1">
 				<FormLabel label="Last Name" required htmlFor="lastName" />
-				<FormInput
-					id="lastName"
-					placeholder="Your name"
-					register={register("lastName", { required: true })}
-				/>
-				{errors.lastName && <FormError message="Please enter your name" />}
+				<FormInput id="lastName" placeholder="Your name" register={register("lastName")} />
+				{errors.lastName?.message && <FormError message={errors.lastName.message} />}
 			</div>
 
 			<div className="col-span-2">
@@ -90,7 +79,6 @@ export default function BillingForm() {
 				<Controller
 					name="country"
 					control={control}
-					rules={{ required: true }}
 					render={({ field }) => (
 						<FormSelect
 							value={field.value}
@@ -101,7 +89,7 @@ export default function BillingForm() {
 					)}
 				/>
 
-				{errors.country && <FormError message="Please select a subject" />}
+				{errors.country?.message && <FormError message={errors.country.message} />}
 			</div>
 
 			<div className="col-span-2">
@@ -109,19 +97,19 @@ export default function BillingForm() {
 				<FormInput
 					id="streetAddress"
 					placeholder="Your street address"
-					register={register("streetAddress", { required: true })}
+					register={register("streetAddress")}
 				/>
-				{errors.streetAddress && <FormError message="Please enter your street address" />}
+
+				{errors.streetAddress?.message && (
+					<FormError message={errors.streetAddress.message} />
+				)}
 			</div>
 
 			<div className="col-span-2">
 				<FormLabel label="Town / City" required htmlFor="city" />
-				<FormInput
-					id="city"
-					placeholder="Your city"
-					register={register("city", { required: true })}
-				/>
-				{errors.city && <FormError message="Please enter your city" />}
+				<FormInput id="city" placeholder="Your city" register={register("city")} />
+
+				{errors.city?.message && <FormError message={errors.city.message} />}
 			</div>
 
 			<div className="col-span-2 relative">
@@ -130,7 +118,6 @@ export default function BillingForm() {
 				<Controller
 					name="province"
 					control={control}
-					rules={{ required: true }}
 					render={({ field }) => (
 						<FormSelect
 							value={field.value}
@@ -141,7 +128,7 @@ export default function BillingForm() {
 					)}
 				/>
 
-				{errors.country && <FormError message="Please select a subject" />}
+				{errors.province?.message && <FormError message={errors.province.message} />}
 			</div>
 
 			<div className="col-span-2">
@@ -149,9 +136,10 @@ export default function BillingForm() {
 				<FormInput
 					id="zipCode"
 					placeholder="Your ZIP code"
-					register={register("zipCode", { required: true })}
+					register={register("zipCode")}
 				/>
-				{errors.zipCode && <FormError message="Please enter your ZIP code" />}
+
+				{errors.zipCode?.message && <FormError message={errors.zipCode.message} />}
 			</div>
 
 			<div className="col-span-2">
@@ -159,50 +147,17 @@ export default function BillingForm() {
 				<FormInput
 					id="phone"
 					type="tel"
+					register={register("phone")}
 					placeholder="Your phone"
-					register={register("phone", {
-						required: true,
-						minLength: 6,
-						maxLength: 12,
-						pattern: /^[0-9]+$/,
-					})}
 				/>
-				{errors.phone && (
-					<FormError
-						message={
-							errors.phone.type === "required"
-								? "Please enter your phone"
-								: errors.phone.type === "minLength"
-									? "Phone number is too short"
-									: errors.phone.type === "maxLength"
-										? "Phone number is too long"
-										: errors.phone.type === "pattern"
-											? "Phone can only contain digits"
-											: "Invalid phone number"
-						}
-					/>
-				)}
+				{errors.phone?.message && <FormError message={errors.phone.message} />}
 			</div>
 
 			<div className="col-span-2">
 				<FormLabel label="Your email address" required htmlFor="email" />
-				<FormInput
-					id="email"
-					placeholder="Your email address"
-					register={register("email", { required: true, pattern: /^\S+@\S+$/i })}
-				/>
+				<FormInput id="email" {...register("email")} placeholder="Your email address" />
 
-				{errors.email && (
-					<FormError
-						message={
-							errors.email.type === "required"
-								? "Email is required"
-								: errors.email.type === "pattern"
-									? 'Email must contain "@" and text after it'
-									: "Invalid email"
-						}
-					/>
-				)}
+				{errors.email?.message && <FormError message={errors.email.message} />}
 			</div>
 
 			<div className="col-span-2">
