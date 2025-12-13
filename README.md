@@ -48,6 +48,6 @@ Furniro is a modern, non-commercial furniture shop web application built with Re
 
 ## Local Demo
     http://localhost:3000/
-	
+
 ## Live Demo
-    https://github.com/Artem96-rgb/furniture-shop
+    https://furniture-shop-liart-pi.vercel.app/

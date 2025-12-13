@@ -6,17 +6,17 @@ import Button from "@/components/ui/Button";
 import FormInput from "@/components/form/FormInput";
 import FormError from "@/components/form/FormError";
 import { notifySuccess } from "@/lib/utils";
-
-interface ISubscribeFormValues {
-	email: string;
-}
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormSchema, FormSchemaType } from "@/lib/zod/schema";
 
 export default function Subscribe() {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitSuccessful },
-	} = useForm<ISubscribeFormValues>();
+	} = useForm<FormSchemaType>({
+		resolver: zodResolver(FormSchema),
+	});
 
 	useEffect(() => {
 		if (isSubmitSuccessful) {
@@ -24,7 +24,7 @@ export default function Subscribe() {
 		}
 	}, [isSubmitSuccessful]);
 
-	const onSubmit = (data: ISubscribeFormValues) => {
+	const onSubmit = (data: FormSchemaType) => {
 		console.log("FORM DATA:", data);
 	};
 
@@ -33,24 +33,13 @@ export default function Subscribe() {
 			onSubmit={handleSubmit(onSubmit)}
 			className="grid lg:grid-cols-[200px_auto] items-start gap-3"
 		>
-			<div className="">
+			<div>
 				<FormInput
 					className="border-x-0 border-t-0 px-0 rounded-none h-auto text-sm pb-0.75"
 					placeholder="Enter Your Email Address"
-					register={register("email", { required: true, pattern: /^\S+@\S+$/i })}
+					{...register("email")}
 				/>
-
-				{errors.email && (
-					<FormError
-						message={
-							errors.email.type === "required"
-								? "Email is required"
-								: errors.email.type === "pattern"
-									? 'Email must contain "@" and text after it'
-									: "Invalid email"
-						}
-					/>
-				)}
+				{errors.email?.message && <FormError message={errors.email.message} />}
 			</div>
 			<Button
 				type="submit"

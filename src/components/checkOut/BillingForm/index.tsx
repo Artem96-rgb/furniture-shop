@@ -50,17 +50,13 @@ export default function BillingForm() {
 		<form onSubmit={handleSubmit(onSubmit)} className="grid gap-x-8 gap-y-6 lg:gap-y-9">
 			<div className="col-span-2 md:col-span-1">
 				<FormLabel label="First Name" required htmlFor="firstName" />
-				<FormInput
-					id="firstName"
-					placeholder="Your name"
-					register={register("firstName")}
-				/>
+				<FormInput id="firstName" placeholder="Your name" {...register("firstName")} />
 				{errors.firstName?.message && <FormError message={errors.firstName.message} />}
 			</div>
 
 			<div className="col-span-2 md:col-span-1">
 				<FormLabel label="Last Name" required htmlFor="lastName" />
-				<FormInput id="lastName" placeholder="Your name" register={register("lastName")} />
+				<FormInput id="lastName" placeholder="Your name" {...register("lastName")} />
 				{errors.lastName?.message && <FormError message={errors.lastName.message} />}
 			</div>
 
@@ -69,7 +65,7 @@ export default function BillingForm() {
 				<FormInput
 					id="companyName"
 					placeholder="Company name"
-					register={register("companyName")}
+					{...register("companyName")}
 				/>
 			</div>
 
@@ -97,7 +93,7 @@ export default function BillingForm() {
 				<FormInput
 					id="streetAddress"
 					placeholder="Your street address"
-					register={register("streetAddress")}
+					{...register("streetAddress")}
 				/>
 
 				{errors.streetAddress?.message && (
@@ -107,7 +103,7 @@ export default function BillingForm() {
 
 			<div className="col-span-2">
 				<FormLabel label="Town / City" required htmlFor="city" />
-				<FormInput id="city" placeholder="Your city" register={register("city")} />
+				<FormInput id="city" placeholder="Your city" {...register("city")} />
 
 				{errors.city?.message && <FormError message={errors.city.message} />}
 			</div>
@@ -133,29 +129,20 @@ export default function BillingForm() {
 
 			<div className="col-span-2">
 				<FormLabel label="ZIP code" required htmlFor="zipCode" />
-				<FormInput
-					id="zipCode"
-					placeholder="Your ZIP code"
-					register={register("zipCode")}
-				/>
+				<FormInput id="zipCode" placeholder="Your ZIP code" {...register("zipCode")} />
 
 				{errors.zipCode?.message && <FormError message={errors.zipCode.message} />}
 			</div>
 
 			<div className="col-span-2">
 				<FormLabel label="Phone" required htmlFor="phone" />
-				<FormInput
-					id="phone"
-					type="tel"
-					register={register("phone")}
-					placeholder="Your phone"
-				/>
+				<FormInput id="phone" type="tel" {...register("phone")} placeholder="Your phone" />
 				{errors.phone?.message && <FormError message={errors.phone.message} />}
 			</div>
 
 			<div className="col-span-2">
 				<FormLabel label="Your email address" required htmlFor="email" />
-				<FormInput id="email" {...register("email")} placeholder="Your email address" />
+				<FormInput id="email" placeholder="Your email address" {...register("email")} />
 
 				{errors.email?.message && <FormError message={errors.email.message} />}
 			</div>
@@ -163,7 +150,7 @@ export default function BillingForm() {
 			<div className="col-span-2">
 				<FormTextArea
 					placeholder="Additional information"
-					register={register("additionalInformation")}
+					{...register("additionalInformation")}
 				/>
 			</div>
 

@@ -1,6 +1,9 @@
 import { z } from "zod";
 
 export const FormSchema = z.object({
+	name: z.string().min(1, { message: "Name cannot be empty" }),
+	subject: z.string().min(1, { message: "Subject cannot be empty" }),
+	message: z.string().min(1, { message: "Message cannot be empty" }),
 	firstName: z.string().min(1, { message: "First name cannot be empty" }),
 	lastName: z.string().min(1, { message: "Last name cannot be empty" }),
 	companyName: z.string().optional(),

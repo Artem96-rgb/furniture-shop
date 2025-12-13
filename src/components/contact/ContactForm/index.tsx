@@ -8,20 +8,17 @@ import FormTextArea from "@/components/form/FormTextArea";
 import Button from "@/components/ui/Button";
 import { useEffect } from "react";
 import { notifySuccess } from "@/lib/utils";
-
-interface IFormValues {
-	name: string;
-	email: string;
-	subject: string;
-	message: string;
-}
+import { FormSchema, FormSchemaType } from "@/lib/zod/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function ContactForm() {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitSuccessful },
-	} = useForm<IFormValues>();
+	} = useForm<FormSchemaType>({
+		resolver: zodResolver(FormSchema),
+	});
 
 	useEffect(() => {
 		if (isSubmitSuccessful) {
@@ -29,7 +26,7 @@ export default function ContactForm() {
 		}
 	}, [isSubmitSuccessful]);
 
-	const onSubmit = (data: IFormValues) => {
+	const onSubmit = (data: FormSchemaType) => {
 		console.log("FORM DATA:", data);
 	};
 
@@ -38,55 +35,29 @@ export default function ContactForm() {
 			{/* Name */}
 			<div>
 				<FormLabel label="Your name" required htmlFor="name" />
-				<FormInput
-					id="name"
-					placeholder="Your name"
-					register={register("name", { required: true })}
-				/>
-				{errors.name && <FormError message="Please enter your name" />}
+				<FormInput id="name" placeholder="Your name" {...register("name")} />
+				{errors.name?.message && <FormError message={errors.name.message} />}
 			</div>
 
 			{/* Email */}
 			<div>
 				<FormLabel label="Your email address" required htmlFor="email" />
-				<FormInput
-					id="email"
-					placeholder="Your email address"
-					register={register("email", { required: true, pattern: /^\S+@\S+$/i })}
-				/>
-				{errors.email && (
-					<FormError
-						message={
-							errors.email.type === "required"
-								? "Email is required"
-								: errors.email.type === "pattern"
-									? 'Email must contain "@" and text after it'
-									: "Invalid email"
-						}
-					/>
-				)}
+				<FormInput id="email" placeholder="Your email address" {...register("email")} />
+				{errors.email?.message && <FormError message={errors.email.message} />}
 			</div>
 
 			{/* Subject */}
 			<div>
 				<FormLabel label="Subject" required htmlFor="subject" />
-				<FormInput
-					id="subject"
-					placeholder="Subject"
-					register={register("subject", { required: true })}
-				/>
-				{errors.subject && <FormError message="Please enter subject" />}
+				<FormInput id="subject" placeholder="Subject" {...register("subject")} />
+				{errors.subject?.message && <FormError message={errors.subject.message} />}
 			</div>
 
 			{/* Message */}
 			<div>
 				<FormLabel label="Message" required htmlFor="message" />
-				<FormTextArea
-					id="message"
-					placeholder="Message"
-					register={register("message", { required: true })}
-				/>
-				{errors.message && <FormError message="Please enter message" />}
+				<FormTextArea id="message" placeholder="Message" {...register("message")} />
+				{errors.message?.message && <FormError message={errors.message.message} />}
 			</div>
 
 			<Button type="submit" className="btn-primary max-w-59.5 h-14 rounded-md">
