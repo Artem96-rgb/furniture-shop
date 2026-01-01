@@ -1,5 +1,3 @@
-"use client";
-
 import Subscribe from "@/components/Subscribe";
 
 export default function Footer() {

@@ -42,7 +42,7 @@ export default function ProductPage() {
 
 	return (
 		<div className="pb-23">
-			<div className="mb-9 bg-light-secondary py-5 lg:py-9.5">
+			<div className="mb-9 bg-light-secondary py-5">
 				<div className="container">
 					<Breadcrumbs breadcrumbs={breadcrumbs} />
 				</div>

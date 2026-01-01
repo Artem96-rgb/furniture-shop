@@ -1,5 +1,3 @@
-"use client";
-
 import HeroBlock from "@/components/blocks/HeroBlock";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";

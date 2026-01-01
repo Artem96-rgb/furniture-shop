@@ -1,5 +1,3 @@
-"use client";
-
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function ContactInfo() {

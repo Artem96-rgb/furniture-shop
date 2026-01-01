@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import ProductBadge from "@/components/ui/ProductBadge";
+import ProductBadge from "../../ui/product/ProductBadge";
 import CompareProduct from "@/components/products/compare/CompareProduct";
-import ProductImage from "@/components/ui/ProductImage";
+import ProductImage from "../../ui/product/ProductImage";
 import { IProduct } from "@/types";
 import WishlistProduct from "@/components/products/wishlist/WishlistProduct";
 import Button from "@/components/ui/Button";

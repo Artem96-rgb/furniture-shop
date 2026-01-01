@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import clsx from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import { toast } from "react-toastify";
 
 /**
@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
  * cn("px-2 py-4", isActive && "bg-primary", "px-4") // -> "py-4 bg-primary px-4"
  * ```
  */
-export function cn(...inputs: (string | undefined | null | false)[]) {
+export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 

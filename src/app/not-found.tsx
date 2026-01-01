@@ -1,5 +1,3 @@
-"use client";
-
 import NoProductsMessage from "@/components/blocks/NoProductsMessage";
 
 export default function NotFound() {

@@ -1,5 +1,3 @@
-"use client";
-
 import { products } from "@/data/products";
 import { features } from "@/data/features";
 import ProductsBlock from "@/components/blocks/ProductsBlock";

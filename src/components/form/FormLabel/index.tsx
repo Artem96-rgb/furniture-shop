@@ -1,5 +1,3 @@
-"use client";
-
 interface IFormLabelProps {
 	label: string;
 	required?: boolean;

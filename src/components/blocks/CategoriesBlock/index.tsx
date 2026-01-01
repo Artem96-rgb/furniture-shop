@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,8 +34,8 @@ export default function CategoriesBlock({
 								<Image
 									src={category.image.src}
 									alt={category.image.alt}
-									width="572"
-									height="720"
+									width={572}
+									height={720}
 									className="rounded-lg"
 								/>
 

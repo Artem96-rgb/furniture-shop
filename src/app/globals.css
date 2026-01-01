@@ -33,7 +33,7 @@
 }
 
 @utility flex-center {
- @apply flex items-center justify-center
+	@apply flex items-center justify-center;
 }
 
 @utility flex-y-center {
@@ -219,14 +219,16 @@
 		@apply text-xl lg:text-2xl font-semibold;
 	}
 
-	button {@apply cursor-pointer transition-ease-in-out focus:outline-0;
+	button {
+		@apply cursor-pointer transition-ease-in-out focus:outline-0;
 	}
 
 	a {
 		@apply inline transition-ease-in-out;
 	}
 
-	input,textarea {
+	input,
+	textarea {
 		@apply focus:outline-0;
 	}
 }
@@ -276,7 +278,7 @@ input:-webkit-autofill:active {
 }
 
 #product-gallery-slider .swiper-button-prev svg,
-#product-gallery-slider .swiper-button-next svg{
+#product-gallery-slider .swiper-button-next svg {
 	width: 20px;
 	height: 20px;
 	color: var(--color-white);

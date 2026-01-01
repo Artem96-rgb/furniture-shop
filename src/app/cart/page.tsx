@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import HeroBlock from "@/components/blocks/HeroBlock";
 import { products } from "@/data/products";
 import { useShoppingCartStore } from "@/store/shoppingCartStore";
@@ -7,7 +8,6 @@ import ProductPrice from "@/components/products/ProductPrice";
 import QuantityCounter from "@/components/products/QuantityCounter";
 import { Trash } from "lucide-react";
 import Button from "@/components/ui/Button";
-import React from "react";
 import NoProductsMessage from "@/components/blocks/NoProductsMessage";
 import { features } from "@/data/features";
 import FeaturesBlock from "@/components/blocks/FeaturesBlock";
@@ -21,12 +21,14 @@ export default function CartPage() {
 
 	// Filter the full products list to return only those
 	// whose IDs exist in the compareProducts array
-	const selectedProducts = products
-		.filter(product => cartProducts.some(item => item.id === product.id))
-		.map(product => {
-			const cartItem = cartProducts.find(item => item.id === product.id)!;
-			return { ...product, quantity: cartItem.quantity };
-		});
+	const selectedProducts = useMemo(() => {
+		return products
+			.filter(product => cartProducts.some(item => item.id === product.id))
+			.map(product => {
+				const cartItem = cartProducts.find(item => item.id === product.id)!;
+				return { ...product, quantity: cartItem.quantity };
+			});
+	}, [cartProducts]);
 
 	// Function to remove a product from the shopping cart
 	// and show a success notification

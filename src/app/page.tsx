@@ -1,5 +1,3 @@
-"use client";
-
 import HomeHeroBlock from "@/components/blocks/HomeHeroBlock";
 import CategoriesBlock from "@/components/blocks/CategoriesBlock";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
