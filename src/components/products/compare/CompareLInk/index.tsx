@@ -21,6 +21,7 @@ export default function CompareLink({ children, className, showCount }: ICompare
 			<Link
 				href="/comparison"
 				className={cn("w-8 h-8 text-black hover:text-primary-500", className)}
+				aria-label="Go to compare page"
 			>
 				{children}
 			</Link>

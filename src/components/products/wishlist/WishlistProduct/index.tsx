@@ -40,6 +40,7 @@ export default function WishlistProduct({ productId, className }: IWishlistProdu
 		<Button
 			className={cn("w-8 h-8 bg-primary-500 rounded-full border-none text-white", className)}
 			onClick={handleClick}
+			aria-label="Add Wishlist Product"
 		>
 			<Heart size="18" className={clsx(isAdded && "text-white fill-white")} />
 		</Button>

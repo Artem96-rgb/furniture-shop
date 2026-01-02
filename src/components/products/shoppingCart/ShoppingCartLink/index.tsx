@@ -25,6 +25,7 @@ export default function ShoppingCartLink({
 			<Link
 				href="/cart"
 				className={cn("w-8 h-8 text-black hover:text-primary-500", className)}
+				aria-label="Go to cart page"
 			>
 				{children}
 			</Link>

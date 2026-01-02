@@ -21,6 +21,7 @@ export default function WishlistLink({ children, className, showCount }: IWishli
 			<Link
 				href="/wishlist"
 				className={cn("w-8 h-8 text-black hover:text-primary-500", className)}
+				aria-label="Go to wishlist page"
 			>
 				{children}
 			</Link>

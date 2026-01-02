@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import ProductBadge from "../../ui/product/ProductBadge";
 import CompareProduct from "@/components/products/compare/CompareProduct";
-import ProductImage from "../../ui/product/ProductImage";
 import { IProduct } from "@/types";
 import WishlistProduct from "@/components/products/wishlist/WishlistProduct";
 import Button from "@/components/ui/Button";
@@ -11,6 +10,7 @@ import Pagination from "@/components/Pagination";
 import Link from "next/link";
 import ProductPrice from "@/components/products/ProductPrice";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface IProductsBlockProps {
 	products: IProduct[];
@@ -70,10 +70,12 @@ export default function ProductsBlock({
 									href={`/shop/${product.id}`}
 									className="overflow-hidden block relative"
 								>
-									<ProductImage
+									<Image
 										src={product.image}
 										alt={product.title}
-										className="group-hover:scale-105 transition-transform duration-300"
+										width={570}
+										height={602}
+										className="group-hover:scale-105 transition-ease-in-out"
 									/>
 
 									<div className="absolute top-2 left-2 sm:top-4 sm:left-4 space-y-2">

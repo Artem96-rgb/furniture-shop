@@ -46,6 +46,7 @@ export default function CompareProduct({ productId, className }: ICompareProduct
 					className
 				)}
 				onClick={handleClick}
+				aria-label="Add Compare Product"
 			>
 				<Scale size="18" className={clsx(isAdded && "text-white fill-white")} />
 			</Button>

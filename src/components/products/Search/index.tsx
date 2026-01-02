@@ -11,14 +11,22 @@ import Link from "next/link";
 import ProductImageThumbnail from "@/components/ui/product/ProductImageThumbnail";
 
 export default function Search() {
+	// Controls whether the search dropdown is open or closed
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+	// Stores the current search input value
 	const [query, setQuery] = useState("");
+
+	// Reference to the search container element (used for click outside detection)
 	const containerRef = useRef<HTMLDivElement>(null);
 
+	// Debounced version of the search query to improve performance
+	// Prevents filtering on every keystroke
 	const debouncedQuery = useDebounce(query, 200);
 
 	// Product filtering
 	const filteredResults = useMemo(() => {
+		// Return an empty array if the query is empty or contains only whitespace
 		if (!debouncedQuery.trim()) return [];
 
 		return products.filter(product =>
@@ -26,7 +34,8 @@ export default function Search() {
 		);
 	}, [debouncedQuery]);
 
-	// Close type dropdown if user clicks outside
+	// Closes the search dropdown and resets the query
+	// when the user clicks outside the search container
 	useClickOutside(containerRef, () => {
 		setIsSearchOpen(false);
 		setQuery("");
@@ -34,7 +43,11 @@ export default function Search() {
 
 	return (
 		<div className="relative" ref={containerRef}>
-			<Button className="border-none w-8 h-8" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+			<Button
+				className="border-none w-8 h-8"
+				onClick={() => setIsSearchOpen(!isSearchOpen)}
+				aria-label="Search products"
+			>
 				<SearchIcon size={28} />
 			</Button>
 
